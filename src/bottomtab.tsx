@@ -21,6 +21,16 @@ type NavigationType = NavigationProp<
 
 const Bottomtab = ({}) => {
   const navigation = useNavigation<NavigationType>();
+  //   const route = useRoute();
+
+  //   // Check if the current route is DoctorDetail
+  //   const isDoctorDetailScreen = route.name === "DoctorDetail";
+
+  //   // Conditionally render the bottom tab bar based on the current route
+  //   if (isDoctorDetailScreen) {
+  //     // Don't render bottom tab bar if on DoctorDetailScreen
+  //     return null;
+  //   }
 
   return (
     <View

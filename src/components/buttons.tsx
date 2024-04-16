@@ -75,28 +75,11 @@ const DefaultButton: React.FC<ButtonProps> = ({
         ...textStyle,
       },
     },
-    request_an_appointment: {
-      name: "  Appointment",
-      style: {
-        backgroundColor: "#000",
-        borderRadius: 40,
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-      },
-      textStyle: {
-        textTransform: "none",
-        fontSize: 18,
-        alignSelf: "center",
-        color: "white",
-        ...textStyle,
-      },
-    },
     book_appointment: {
-      name: "Book Appointment",
+      name: "Booking Appointment",
       style: {
-        backgroundColor: "#000",
-        borderRadius: 10,
-        color: "white",
+        backgroundColor: "#009eff",
+        borderRadius: 40,
         paddingVertical: 10,
         paddingHorizontal: 20,
       },

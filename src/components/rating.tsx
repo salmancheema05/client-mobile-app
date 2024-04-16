@@ -35,7 +35,7 @@ const ReadOnlyRating: React.FC<ReadOnlyRatingProps> = ({
   starSize = 20,
   tintColor,
   userRating = null,
-  viewRating = "3.5",
+  viewRating,
   styles,
 }) => {
   return (

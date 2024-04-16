@@ -6,27 +6,34 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { NavigationProp, RouteProp } from "@react-navigation/native";
+import { DefaultTouchableOpacity } from "../../../components/touchableOpacity";
 
-const Header = () => {
+type headerProps = {
+  navigation: NavigationProp<any>;
+};
+const Header: React.FC<headerProps> = ({ navigation }) => {
   return (
     <View
       style={{
         backgroundColor: "#009eff",
         width: "100%",
-        height: hp(12),
+        height: hp(8),
+        marginTop: hp(3),
         flexDirection: "row",
       }}
     >
-      <View
-        style={{
+      <DefaultTouchableOpacity
+        styles={{
           width: wp(20),
           height: "100%",
           justifyContent: "center",
           alignItems: "center",
         }}
+        handler={() => navigation.navigate("FindDoctor")}
       >
         <LeftArrow />
-      </View>
+      </DefaultTouchableOpacity>
       <View
         style={{
           width: wp(60),

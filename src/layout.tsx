@@ -1,10 +1,4 @@
-import {
-  View,
-  ScrollView,
-  TextInput,
-  SafeAreaView,
-  ViewStyle,
-} from "react-native";
+import { View, ScrollView, SafeAreaView, ViewStyle } from "react-native";
 import React from "react";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import {
@@ -13,7 +7,8 @@ import {
 } from "react-native-responsive-screen";
 import { DefaultImage } from "./components/images";
 import { DefaultHeading } from "./components/headings";
-import { Ambulance, Clinic, Doctor } from "./components/icons";
+import { Ambulance, Clinic, Doctor, Search } from "./components/icons";
+import { DefaultTextInput } from "./components/textinputs";
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -55,18 +50,12 @@ const Layout: React.FC<LayoutProps> = ({
               source={require("./images/logo.png")}
               styles={{ width: 60, height: 60, marginTop: hp(3) }}
             />
-
-            <TextInput
-              placeholder="Search"
-              style={{
-                backgroundColor: "#f1f4f5",
-                width: wp(85),
-                margin: 12,
-                padding: 10,
-                borderRadius: 20,
-                marginTop: hp(3),
-              }}
-            />
+            <View style={{ width: wp(80) }}>
+              <DefaultTextInput
+                icon={<Search color="gray" size={18} />}
+                placeholder="Search"
+              />
+            </View>
           </View>
         ) : (
           component

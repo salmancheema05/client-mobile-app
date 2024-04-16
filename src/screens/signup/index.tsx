@@ -9,6 +9,12 @@ import {
 } from "react-native-responsive-screen";
 import { DefaultButton } from "../../components/buttons";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
+import {
+  DefaultSelectBox,
+  DefaultTextInput,
+} from "../../components/textinputs";
+import { Email, UnLock } from "../../components/icons";
+DefaultSelectBox;
 type NavigationType = NavigationProp<
   Record<string, object | undefined>,
   string,
@@ -42,39 +48,42 @@ const SignUp = () => {
         style={{
           flex: 1,
           backgroundColor: "white",
-
+          paddingHorizontal: wp(4),
           borderTopLeftRadius: 70,
           borderTopRightRadius: 70,
         }}
       >
         <View style={{ marginTop: hp(20) }}>
-          <TextInput
-            placeholder="Email"
-            style={{
-              backgroundColor: "#f1f4f5",
-              height: hp(8),
-              margin: 12,
-              padding: 10,
-            }}
-          />
-          <TextInput
-            placeholder="Password"
-            style={{
-              backgroundColor: "#f1f4f5",
-              height: hp(8),
-              margin: 12,
-              padding: 10,
-            }}
-          />
-          <DefaultButton
-            buttonKey="login"
-            styles={{ marginTop: hp(5), marginHorizontal: wp(5) }}
-          />
+          <View>
+            <DefaultTextInput
+              icon={<Email color="gray" />}
+              placeholder="Email"
+            />
+          </View>
+          <View>
+            <DefaultTextInput
+              icon={<UnLock color="gray" />}
+              placeholder="Password"
+            />
+          </View>
+          <View style={{ width: wp(40), marginTop: hp(5) }}>
+            <DefaultSelectBox
+              items={[
+                { label: "Male", value: "male" },
+                { label: "Female", value: "Female" },
+              ]}
+              placeholder="Select Gender"
+            />
+          </View>
+
+          <DefaultButton buttonKey="login" styles={{ marginTop: hp(5) }} />
           <View style={{ marginTop: hp(5), marginHorizontal: wp(25) }}>
             <View style={{ flexDirection: "row" }}>
-              <Text>You have already Account? </Text>
+              <DefaultText styles={{ fontSize: 13, marginRight: wp(1) }}>
+                You have already Account?
+              </DefaultText>
               <Text
-                style={{ color: "#009eff" }}
+                style={{ color: "#009eff", fontSize: 13 }}
                 onPress={() => navigation.navigate("Login")}
               >
                 Login

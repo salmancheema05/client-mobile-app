@@ -39,7 +39,7 @@ const CircleImage: React.FC<ImageProps> = ({
     <Image
       source={source}
       style={[
-        { width: hp(10), height: hp(10), borderRadius: hp(100), marginTop: 20 },
+        { width: hp(10), height: hp(10), borderRadius: hp(100), marginTop: 0 },
         styles,
       ]}
       resizeMode={resizeMode}

@@ -11,306 +11,385 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Header from "./component/header";
-
+import DefaultHorizontalScrolling from "../../components/Scrolling";
+import { DefaultButton } from "../../components/buttons";
+import { useNavigation } from "@react-navigation/native";
 const DoctorDetailScreen = () => {
+  const navigation = useNavigation();
   return (
-    <Layout component={<Header />}>
-      <DefaultView>
-        <View
-          style={{
-            flexDirection: "row",
-            height: hp(15),
-            paddingLeft: 10,
-            borderRadius: 10,
-            borderBottomWidth: 2,
-            borderColor: "#009eff",
+    <View style={{ flex: 1, backgroundColor: "white" }}>
+      <Layout component={<Header navigation={navigation} />}>
+        <DefaultView
+          styles={{
+            marginHorizontal: wp(0),
+            paddingHorizontal: wp(5),
           }}
         >
-          <View style={{ width: wp(20) }}>
-            <CircleImage
-              source={require("../../images/doctorimage2.jpg")}
-              styles={{
-                marginTop: hp(3),
+          <View style={{ marginTop: hp(3), flexDirection: "row" }}>
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                width: hp(14),
+                height: hp(14),
+                borderRadius: hp(100),
               }}
-            />
+            >
+              <CircleImage
+                source={require("../../images/doctorimage2.jpg")}
+                styles={{
+                  width: hp(13),
+                  height: hp(13),
+                  borderRadius: hp(100),
+                }}
+              />
+            </View>
+            <View style={{ marginTop: hp(2), marginHorizontal: wp(5) }}>
+              <DefaultHeading tag="h5" styles={{ marginBottom: hp(2) }}>
+                Dr Salman Akbar
+              </DefaultHeading>
+              <DefaultText styles={{ marginBottom: hp(2) }}>
+                Cardiology
+              </DefaultText>
+              <ReadOnlyRating
+                userRating={3.5}
+                starLenght={5}
+                styles={{ paddingVertical: 0 }}
+              />
+            </View>
           </View>
+
           <View
             style={{
-              width: wp(67),
-              paddingHorizontal: 10,
+              flexDirection: "row",
+              marginHorizontal: wp(5),
+              marginTop: hp(3),
             }}
           >
             <View
               style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginTop: hp(3),
+                borderRightWidth: 1,
+                borderColor: "lightgray",
+                width: wp(20),
+                justifyContent: "center",
               }}
             >
+              <DefaultText styles={{ marginBottom: hp(1) }}>
+                Patient
+              </DefaultText>
+              <DefaultHeading tag="h5" styles={{ marginBottom: hp(1) }}>
+                320 +
+              </DefaultHeading>
+            </View>
+            <View
+              style={{
+                borderRightWidth: 1,
+                borderColor: "lightgray",
+                width: wp(35),
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <DefaultText styles={{ marginBottom: hp(1) }}>
+                Experience
+              </DefaultText>
+              <DefaultHeading tag="h5" styles={{ marginBottom: hp(1) }}>
+                5 Years +
+              </DefaultHeading>
+            </View>
+            <View
+              style={{
+                width: wp(35),
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <DefaultText styles={{ marginBottom: hp(1) }}>Fee</DefaultText>
+              <DefaultHeading tag="h5">1000</DefaultHeading>
+            </View>
+          </View>
+
+          <View style={{ marginTop: hp(5) }}>
+            <View>
+              <DefaultHeading tag="h4" styles={{ marginBottom: hp(1) }}>
+                Select Date
+              </DefaultHeading>
+            </View>
+
+            <DefaultHorizontalScrolling styles={{ marginTop: hp(2) }}>
               <View
                 style={{
-                  width: wp(25),
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3) }}>Mon</DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3) }}>20</DefaultText>
+              </View>
+              <View
+                style={{
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  backgroundColor: "#009eff",
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3), color: "white" }}>
+                  Mon
+                </DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3), color: "white" }}>
+                  20
+                </DefaultText>
+              </View>
+              <View
+                style={{
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3) }}>Mon</DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3) }}>20</DefaultText>
+              </View>
+              <View
+                style={{
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3) }}>Mon</DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3) }}>20</DefaultText>
+              </View>
+              <View
+                style={{
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3) }}>Mon</DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3) }}>20</DefaultText>
+              </View>
+              <View
+                style={{
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3) }}>Mon</DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3) }}>20</DefaultText>
+              </View>
+              <View
+                style={{
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3) }}>Mon</DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3) }}>20</DefaultText>
+              </View>
+              <View
+                style={{
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3) }}>Mon</DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3) }}>20</DefaultText>
+              </View>
+              <View
+                style={{
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3) }}>Mon</DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3) }}>20</DefaultText>
+              </View>
+              <View
+                style={{
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3) }}>Mon</DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3) }}>20</DefaultText>
+              </View>
+              <View
+                style={{
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(20),
+                  height: hp(15),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                }}
+              >
+                <DefaultText styles={{ paddingTop: hp(3) }}>Mon</DefaultText>
+                <DefaultText styles={{ paddingTop: hp(3) }}>20</DefaultText>
+              </View>
+            </DefaultHorizontalScrolling>
+          </View>
+
+          <View style={{ marginTop: hp(5) }}>
+            <View>
+              <DefaultHeading tag="h4" styles={{ marginBottom: hp(1) }}>
+                Select Time
+              </DefaultHeading>
+            </View>
+            <DefaultHorizontalScrolling styles={{ marginTop: hp(2) }}>
+              <View
+                style={{
                   justifyContent: "center",
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(35),
+                  height: hp(5),
+                  borderRadius: 50,
+                  marginRight: wp(5),
                 }}
               >
-                <DefaultHeading tag="h6">DR Ali khan</DefaultHeading>
+                <DefaultText>4:00 PM</DefaultText>
               </View>
-              <View style={{ width: wp(25) }}>
-                <ReadOnlyRating starLenght={5} userRating={4.5} starSize={15} />
-              </View>
-            </View>
-
-            <DefaultText>Dermatologist</DefaultText>
-            <View style={{ flexDirection: "row", marginTop: hp(4) }}></View>
-          </View>
-        </View>
-        <View style={{ marginTop: hp(3) }}>
-          <DefaultHeading tag="h3" styles={{ color: "#009eff" }}>
-            About
-          </DefaultHeading>
-          <DefaultText styles={{ textAlign: "left", marginTop: hp(3) }}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni
-            accusantium distinctio rem, ipsam libero, optio porro similique ab,
-            voluptas molestias reiciendis. Molestias accusamus eligendi vero.
-            Repellat maxime nam possimus minima? Lorem ipsum dolor, sit amet
-            consectetur adipisicing elit. Magni accusantium distinctio rem,
-            ipsam libero, optio porro similique ab, voluptas molestias
-            reiciendis. Molestias accusamus eligendi vero. Repellat maxime nam
-            possimus minima? Lorem ipsum dolor, sit amet consectetur adipisicing
-            elit. Magni accusantium distinctio rem, ipsam libero, optio porro
-            similique ab, voluptas molestias reiciendis. Molestias accusamus
-            eligendi vero. Repellat maxime nam possimus minima?
-          </DefaultText>
-        </View>
-        <View style={{ marginTop: hp(10) }}>
-          <View
-            style={{
-              marginBottom: hp(5),
-              borderBottomWidth: 2,
-              borderColor: "#009eff",
-            }}
-          >
-            <DefaultHeading tag="h3">Comments</DefaultHeading>
-          </View>
-          <View
-            style={{
-              flexDirection: "row",
-              paddingLeft: 10,
-              borderRadius: 10,
-            }}
-          >
-            <View style={{ width: wp(20) }}>
-              <CircleImage
-                source={require("../../images/doctorimage2.jpg")}
-                styles={{
-                  marginTop: hp(3),
-                }}
-              />
-            </View>
-            <View
-              style={{
-                width: wp(67),
-                paddingHorizontal: 10,
-              }}
-            >
               <View
                 style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  marginTop: hp(3),
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(35),
+                  height: hp(5),
+                  borderRadius: 50,
+                  marginRight: wp(5),
+                  backgroundColor: "#009eff",
                 }}
               >
-                <View
-                  style={{
-                    width: wp(25),
-                    justifyContent: "center",
-                  }}
-                >
-                  <DefaultHeading tag="h6">DR Ali khan</DefaultHeading>
-                </View>
-                <View style={{ width: wp(25) }}>
-                  <ReadOnlyRating
-                    starLenght={5}
-                    userRating={4.5}
-                    starSize={15}
-                  />
-                </View>
+                <DefaultText styles={{ color: "white" }}>4:00 PM</DefaultText>
               </View>
-
-              <DefaultText>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Deleniti maxime repellat inventore porro impedit officiis
-                molestiae, voluptatum dolorum sint et commodi architecto magni
-                veniam odio, ratione esse eveniet? Ratione, blanditiis!
-              </DefaultText>
-              <View style={{ flexDirection: "row", marginTop: hp(4) }}></View>
-            </View>
-          </View>
-          <View
-            style={{
-              flexDirection: "row",
-              paddingLeft: 10,
-              borderRadius: 10,
-            }}
-          >
-            <View style={{ width: wp(20) }}>
-              <CircleImage
-                source={require("../../images/doctorimage2.jpg")}
-                styles={{
-                  marginTop: hp(3),
-                }}
-              />
-            </View>
-            <View
-              style={{
-                width: wp(67),
-                paddingHorizontal: 10,
-              }}
-            >
               <View
                 style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  marginTop: hp(3),
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(35),
+                  height: hp(5),
+                  borderRadius: 50,
+                  marginRight: wp(5),
                 }}
               >
-                <View
-                  style={{
-                    width: wp(25),
-                    justifyContent: "center",
-                  }}
-                >
-                  <DefaultHeading tag="h6">Ali khan</DefaultHeading>
-                </View>
-                <View style={{ width: wp(25) }}>
-                  <ReadOnlyRating
-                    starLenght={5}
-                    userRating={4.5}
-                    starSize={15}
-                  />
-                </View>
+                <DefaultText>4:00 PM</DefaultText>
               </View>
-
-              <DefaultText>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Deleniti maxime repellat inventore porro impedit officiis
-                molestiae, voluptatum dolorum sint et commodi architecto magni
-                veniam odio, ratione esse eveniet? Ratione, blanditiis!
-              </DefaultText>
-              <View style={{ flexDirection: "row", marginTop: hp(4) }}></View>
-            </View>
-          </View>
-          <View
-            style={{
-              flexDirection: "row",
-              paddingLeft: 10,
-              borderRadius: 10,
-            }}
-          >
-            <View style={{ width: wp(20) }}>
-              <CircleImage
-                source={require("../../images/doctorimage2.jpg")}
-                styles={{
-                  marginTop: hp(3),
-                }}
-              />
-            </View>
-            <View
-              style={{
-                width: wp(67),
-                paddingHorizontal: 10,
-              }}
-            >
               <View
                 style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  marginTop: hp(3),
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(35),
+                  height: hp(5),
+                  borderRadius: 50,
+                  marginRight: wp(5),
                 }}
               >
-                <View
-                  style={{
-                    width: wp(25),
-                    justifyContent: "center",
-                  }}
-                >
-                  <DefaultHeading tag="h6"> Ali khan</DefaultHeading>
-                </View>
-                <View style={{ width: wp(25) }}>
-                  <ReadOnlyRating
-                    starLenght={5}
-                    userRating={4.5}
-                    starSize={15}
-                  />
-                </View>
+                <DefaultText>4:00 PM</DefaultText>
               </View>
-
-              <DefaultText>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Deleniti maxime repellat inventore porro impedit officiis
-                molestiae, voluptatum dolorum sint et commodi architecto magni
-                veniam odio, ratione esse eveniet? Ratione, blanditiis!
-              </DefaultText>
-              <View style={{ flexDirection: "row", marginTop: hp(4) }}></View>
-            </View>
-          </View>
-          <View
-            style={{
-              flexDirection: "row",
-              paddingLeft: 10,
-              borderRadius: 10,
-            }}
-          >
-            <View style={{ width: wp(20) }}>
-              <CircleImage
-                source={require("../../images/doctorimage2.jpg")}
-                styles={{
-                  marginTop: hp(3),
-                }}
-              />
-            </View>
-            <View
-              style={{
-                width: wp(67),
-                paddingHorizontal: 10,
-              }}
-            >
               <View
                 style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  marginTop: hp(3),
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderWidth: 1,
+                  borderColor: "lightgray",
+                  width: wp(35),
+                  height: hp(5),
+                  borderRadius: 50,
+                  marginRight: wp(5),
                 }}
               >
-                <View
-                  style={{
-                    width: wp(25),
-                    justifyContent: "center",
-                  }}
-                >
-                  <DefaultHeading tag="h6"> Ali khan</DefaultHeading>
-                </View>
-                <View style={{ width: wp(25) }}>
-                  <ReadOnlyRating
-                    starLenght={5}
-                    userRating={4.5}
-                    starSize={15}
-                  />
-                </View>
+                <DefaultText>4:00 PM</DefaultText>
               </View>
+            </DefaultHorizontalScrolling>
+          </View>
 
-              <DefaultText>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Deleniti maxime repellat inventore porro impedit officiis
-                molestiae, voluptatum dolorum sint et commodi architecto magni
-                veniam odio, ratione esse eveniet? Ratione, blanditiis!
+          <View style={{ marginVertical: hp(5) }}>
+            <View>
+              <DefaultHeading tag="h3" styles={{ marginBottom: hp(1) }}>
+                About
+              </DefaultHeading>
+            </View>
+            <View>
+              <DefaultText styles={{ paddingTop: hp(1) }}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
               </DefaultText>
-              <View style={{ flexDirection: "row", marginTop: hp(4) }}></View>
+            </View>
+            <View style={{ marginTop: hp(5) }}>
+              <DefaultButton
+                buttonKey="book_appointment"
+                styles={{ borderRadius: 50 }}
+              />
             </View>
           </View>
-        </View>
-      </DefaultView>
-    </Layout>
+        </DefaultView>
+      </Layout>
+    </View>
   );
 };
 
