@@ -1,8 +1,7 @@
-import { View, TextInput, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { DefaultView } from "../../components/Views";
 import { DefaultText } from "../../components/texts";
-
+import { View, Text } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -14,7 +13,7 @@ import {
   DefaultTextInput,
 } from "../../components/textinputs";
 import { Email, UnLock } from "../../components/icons";
-DefaultSelectBox;
+
 type NavigationType = NavigationProp<
   Record<string, object | undefined>,
   string,
@@ -22,8 +21,10 @@ type NavigationType = NavigationProp<
   any,
   any
 >;
+
 const SignUp = () => {
   const navigation: NavigationType = useNavigation();
+
   return (
     <DefaultView
       styles={{
@@ -53,7 +54,10 @@ const SignUp = () => {
           borderTopRightRadius: 70,
         }}
       >
-        <View style={{ marginTop: hp(20) }}>
+        <View style={{ marginTop: hp(15) }}>
+          <View>
+            <DefaultTextInput placeholder="Full Name" />
+          </View>
           <View>
             <DefaultTextInput
               icon={<Email color="gray" />}
@@ -66,17 +70,34 @@ const SignUp = () => {
               placeholder="Password"
             />
           </View>
-          <View style={{ width: wp(40), marginTop: hp(5) }}>
-            <DefaultSelectBox
-              items={[
-                { label: "Male", value: "male" },
-                { label: "Female", value: "Female" },
-              ]}
-              placeholder="Select Gender"
-            />
+          <View
+            style={{
+              marginTop: hp(5),
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <View style={{ width: wp(40) }}>
+              <DefaultSelectBox
+                items={[
+                  { label: "Doctor", value: "doctor" },
+                  { label: "Patient", value: "patient" },
+                ]}
+                placeholder="Who are You"
+              />
+            </View>
+            <View style={{ width: wp(40) }}>
+              <DefaultSelectBox
+                items={[
+                  { label: "Male", value: "male" },
+                  { label: "Female", value: "female" },
+                ]}
+                placeholder="Gender"
+              />
+            </View>
           </View>
 
-          <DefaultButton buttonKey="login" styles={{ marginTop: hp(5) }} />
+          <DefaultButton buttonKey="signup" styles={{ marginTop: hp(5) }} />
           <View style={{ marginTop: hp(5), marginHorizontal: wp(25) }}>
             <View style={{ flexDirection: "row" }}>
               <DefaultText styles={{ fontSize: 13, marginRight: wp(1) }}>

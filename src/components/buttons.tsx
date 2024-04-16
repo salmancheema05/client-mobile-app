@@ -75,6 +75,23 @@ const DefaultButton: React.FC<ButtonProps> = ({
         ...textStyle,
       },
     },
+    signup: {
+      name: "Sign Up",
+      style: {
+        backgroundColor: "#009eff",
+        borderRadius: 40,
+        color: "white",
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+      },
+      textStyle: {
+        textTransform: "none",
+        fontSize: 18,
+        alignSelf: "center",
+        color: "white",
+        ...textStyle,
+      },
+    },
     book_appointment: {
       name: "Booking Appointment",
       style: {
