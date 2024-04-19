@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
+import { Settings, View } from "react-native";
 import {
   HomeScreen,
   LoginScreen,
@@ -7,6 +7,7 @@ import {
   FindDoctorScreen,
   DoctorDetailScreen,
   PatientAdminScreen,
+  PatientSetting,
 } from "./src/importScreens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -49,6 +50,14 @@ export default function App() {
           <Tab.Screen
             name="Signup"
             component={SignupScreen}
+            options={{
+              tabBarStyle: { display: "none" },
+              tabBarButton: () => null,
+            }}
+          />
+          <Tab.Screen
+            name="Setting"
+            component={PatientSetting}
             options={{
               tabBarStyle: { display: "none" },
               tabBarButton: () => null,

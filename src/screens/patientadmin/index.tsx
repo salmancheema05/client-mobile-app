@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useState } from "react";
+import { View } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -14,8 +14,10 @@ import {
 } from "../../components/Views";
 import { DefaultText } from "../../components/texts";
 import { DoctorCard } from "../../components/cards";
+import { DefaultTouchableOpacity } from "../../components/touchableOpacity";
 
 const PatientAdminScreen = () => {
+  const [openDropDown, setOpenDropDown] = useState<boolean>(false);
   return (
     <>
       <View
@@ -57,7 +59,11 @@ const PatientAdminScreen = () => {
             justifyContent: "center",
           }}
         >
-          <ThreeDotVertical />
+          <DefaultTouchableOpacity
+            handler={() => setOpenDropDown(!openDropDown)}
+          >
+            <ThreeDotVertical />
+          </DefaultTouchableOpacity>
         </View>
         <BoxWithShadow
           styles={{
@@ -66,9 +72,9 @@ const PatientAdminScreen = () => {
             height: hp(12),
             position: "absolute",
             right: 10,
-            marginTop: hp(5),
+            marginTop: hp(8),
             justifyContent: "center",
-            display: "none",
+            display: openDropDown ? "flex" : "none",
           }}
         >
           <View
