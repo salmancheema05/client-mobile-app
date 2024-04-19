@@ -1,13 +1,11 @@
-import { View, Text } from "react-native";
 import React from "react";
-import { CircleImage } from "../../../components/images";
+import { View } from "react-native";
 import { ReadOnlyRating } from "../../../components/rating";
 import {
   DefaultHeading,
   DefaultTitleWithLink,
 } from "../../../components/headings";
 import { DefaultText } from "../../../components/texts";
-import DefaultCards from "../../../components/cards";
 import { BoxWithShadow, DefaultSection } from "../../../components/Views";
 import {
   widthPercentageToDP as wp,

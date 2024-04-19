@@ -1,5 +1,5 @@
-import { View, ScrollView, SafeAreaView, ViewStyle } from "react-native";
 import React from "react";
+import { View, ScrollView, SafeAreaView, ViewStyle } from "react-native";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import {
   widthPercentageToDP as wp,

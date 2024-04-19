@@ -12,13 +12,12 @@ interface ReadOnlyRatingProps {
 const DefaultRating = () => {
   const [selectRating, setSelectRating] = useState(0);
   return (
-    //<Text></Text>
     <Rating
-      type="heart"
+      type="star"
       ratingColor="#3498db"
       ratingBackgroundColor="#c8c7c8"
       ratingCount={5}
-      imageSize={30}
+      imageSize={20}
       fractions={1}
       jumpValue={0.5}
       startingValue={selectRating}
@@ -26,7 +25,6 @@ const DefaultRating = () => {
         console.log(rating);
         setSelectRating(rating);
       }}
-      style={{ paddingVertical: 10 }}
     />
   );
 };
