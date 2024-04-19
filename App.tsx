@@ -6,6 +6,7 @@ import {
   SignupScreen,
   FindDoctorScreen,
   DoctorDetailScreen,
+  PatientAdminScreen,
 } from "./src/importScreens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -53,7 +54,14 @@ export default function App() {
               tabBarButton: () => null,
             }}
           />
-
+          <Tab.Screen
+            name="PatientAdmin"
+            component={PatientAdminScreen}
+            options={{
+              tabBarStyle: { display: "none" },
+              tabBarButton: () => null,
+            }}
+          />
           <Tab.Screen
             name="DoctorDetail"
             component={DoctorDetailScreen}

@@ -74,7 +74,7 @@ const FindDoctorScreen = () => {
                   userRating={4.5}
                   starSize={16}
                   viewRating="4.5"
-                  styles={{ paddingVertical: 2 }}
+                  styles={{ paddingHorizontal: 0 }}
                 />
               </View>
 
@@ -132,7 +132,7 @@ const FindDoctorScreen = () => {
                   userRating={4.5}
                   starSize={16}
                   viewRating="4.5"
-                  styles={{ paddingVertical: 2 }}
+                  styles={{ paddingHorizontal: 0 }}
                 />
               </View>
 
@@ -190,7 +190,7 @@ const FindDoctorScreen = () => {
                   userRating={4.5}
                   starSize={16}
                   viewRating="4.5"
-                  styles={{ paddingVertical: 2 }}
+                  styles={{ paddingHorizontal: 0 }}
                 />
               </View>
 
@@ -248,7 +248,7 @@ const FindDoctorScreen = () => {
                   userRating={4.5}
                   starSize={16}
                   viewRating="4.5"
-                  styles={{ paddingVertical: 2 }}
+                  styles={{ paddingHorizontal: 0 }}
                 />
               </View>
 

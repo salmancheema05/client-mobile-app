@@ -44,9 +44,9 @@ const ReadOnlyRating: React.FC<ReadOnlyRatingProps> = ({
         imageSize={starSize}
         startingValue={userRating}
         // tintColor={tintColor}
-        style={{ paddingVertical: 10, ...styles }}
+        style={{ paddingHorizontal: 10, ...styles }}
       />
-      <Text style={{ paddingHorizontal: 5 }}>{viewRating}</Text>
+      <Text style={{ paddingHorizontal: 0 }}>{viewRating}</Text>
     </View>
   );
 };

@@ -1,8 +1,7 @@
-import { View, TextInput, Text, TouchableOpacity } from "react-native";
 import React from "react";
+import { View, Text } from "react-native";
 import { DefaultView } from "../../components/Views";
 import { DefaultText } from "../../components/texts";
-
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -64,7 +63,11 @@ const Login = () => {
               placeholder="Password"
             />
           </View>
-          <DefaultButton buttonKey="login" styles={{ marginTop: hp(5) }} />
+          <DefaultButton
+            buttonKey="login"
+            handler={() => navigation.navigate("PatientAdmin")}
+            styles={{ marginTop: hp(5) }}
+          />
           <View style={{ marginTop: hp(5), marginHorizontal: wp(25) }}>
             <View style={{ flexDirection: "row" }}>
               <DefaultText styles={{ fontSize: 13, marginRight: wp(1) }}>

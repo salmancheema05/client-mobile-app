@@ -5,7 +5,6 @@ import {
   DefaultSection,
   BoxWithShadow,
 } from "../../../components/Views";
-import DefaultCards from "../../../components/cards";
 import { CircleImage } from "../../../components/images";
 import {
   DefaultHeading,
@@ -18,7 +17,8 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-DefaultTitleWithLink;
+import { DoctorCard } from "../../../components/cards";
+
 const GreateDoctors = () => {
   return (
     <DefaultSection styles={{}}>
@@ -32,14 +32,12 @@ const GreateDoctors = () => {
               marginBottom: hp(0),
             }}
           >
-            <CircleImage source={require("../../../images/doctorimage2.jpg")} />
-            <DefaultHeading tag="h5" styles={{ marginTop: 10 }}>
-              Dr Salman Akbar
-            </DefaultHeading>
-            <DefaultText styles={{ marginTop: 10 }}>Dermatologist</DefaultText>
-            <View style={{ flexDirection: "row", justifyContent: "center" }}>
-              <ReadOnlyRating userRating={4.5} viewRating="4.5(3)" />
-            </View>
+            <DoctorCard
+              image={require("../../../images/doctorimage2.jpg")}
+              name="Salman Akbar"
+              departmentName="Dermatologist"
+              rating="4.5 (3)"
+            />
           </BoxWithShadow>
         </DefaultTouchableOpacity>
 
@@ -51,14 +49,12 @@ const GreateDoctors = () => {
               marginBottom: hp(1),
             }}
           >
-            <CircleImage source={require("../../../images/doctorimage2.jpg")} />
-            <DefaultHeading tag="h5" styles={{ marginTop: 10 }}>
-              Dr Salman Akbar
-            </DefaultHeading>
-            <DefaultText styles={{ marginTop: 10 }}>Dermatologist</DefaultText>
-            <View style={{ flexDirection: "row", justifyContent: "center" }}>
-              <ReadOnlyRating userRating={4.5} viewRating="4.5(3)" />
-            </View>
+            <DoctorCard
+              image={require("../../../images/doctorimage2.jpg")}
+              name="Salman Akbar"
+              departmentName="Dermatologist"
+              rating="4.5 (3)"
+            />
           </BoxWithShadow>
         </DefaultTouchableOpacity>
 
@@ -70,14 +66,12 @@ const GreateDoctors = () => {
               marginBottom: hp(1),
             }}
           >
-            <CircleImage source={require("../../../images/doctorimage2.jpg")} />
-            <DefaultHeading tag="h5" styles={{ marginTop: 10 }}>
-              Dr Salman Akbar
-            </DefaultHeading>
-            <DefaultText styles={{ marginTop: 10 }}>Dermatologist</DefaultText>
-            <View style={{ flexDirection: "row", justifyContent: "center" }}>
-              <ReadOnlyRating userRating={4.5} viewRating="4.5(3)" />
-            </View>
+            <DoctorCard
+              image={require("../../../images/doctorimage2.jpg")}
+              name="Salman Akbar"
+              departmentName="Dermatologist"
+              rating="4.5 (3)"
+            />
           </BoxWithShadow>
         </DefaultTouchableOpacity>
 
@@ -89,14 +83,12 @@ const GreateDoctors = () => {
               marginBottom: hp(1),
             }}
           >
-            <CircleImage source={require("../../../images/doctorimage2.jpg")} />
-            <DefaultHeading tag="h5" styles={{ marginTop: 10 }}>
-              Dr Salman Akbar
-            </DefaultHeading>
-            <DefaultText styles={{ marginTop: 10 }}>Dermatologist</DefaultText>
-            <View style={{ flexDirection: "row", justifyContent: "center" }}>
-              <ReadOnlyRating userRating={4.5} viewRating="4.5(3)" />
-            </View>
+            <DoctorCard
+              image={require("../../../images/doctorimage2.jpg")}
+              name="Salman Akbar"
+              departmentName="Dermatologist"
+              rating="4 (3)"
+            />
           </BoxWithShadow>
         </DefaultTouchableOpacity>
       </DefaultGrid>

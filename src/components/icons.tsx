@@ -58,3 +58,8 @@ export const Email: React.FC<Iconprops> = ({ size = 20, color = "black" }) => (
 export const UnLock: React.FC<Iconprops> = ({ size = 20, color = "black" }) => (
   <AntDesign name="unlock" size={size} color={color} />
 );
+
+export const ThreeDotVertical: React.FC<Iconprops> = ({
+  size = 20,
+  color = "white",
+}) => <Entypo name="dots-three-vertical" size={size} color={color} />;

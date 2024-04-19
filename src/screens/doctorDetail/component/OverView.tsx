@@ -11,9 +11,7 @@ import {
 } from "react-native-responsive-screen";
 import DefaultHorizontalScrolling from "../../../components/Scrolling";
 import { DefaultButton } from "../../../components/buttons";
-import { useNavigation } from "@react-navigation/native";
 const DoctorDetailScreen = () => {
-  const navigation = useNavigation();
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <SafeAreaView style={{ flex: 1 }}>
