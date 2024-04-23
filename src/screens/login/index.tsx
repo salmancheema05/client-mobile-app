@@ -65,7 +65,7 @@ const Login = () => {
           </View>
           <DefaultButton
             buttonKey="login"
-            handler={() => navigation.navigate("PatientAdmin")}
+            handler={() => navigation.navigate("DoctorAdmin")}
             styles={{ marginTop: hp(5) }}
           />
           <View style={{ marginTop: hp(5), marginHorizontal: wp(25) }}>

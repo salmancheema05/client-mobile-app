@@ -15,9 +15,19 @@ import {
 import { DefaultText } from "../../components/texts";
 import { DoctorCard } from "../../components/cards";
 import { DefaultTouchableOpacity } from "../../components/touchableOpacity";
+import { useNavigation, NavigationProp } from "@react-navigation/native";
+
+type NavigationType = NavigationProp<
+  Record<string, object | undefined>,
+  string,
+  any,
+  any,
+  any
+>;
 
 const PatientAdminScreen = () => {
   const [openDropDown, setOpenDropDown] = useState<boolean>(false);
+  const navigation: NavigationType = useNavigation();
   return (
     <>
       <View
@@ -84,7 +94,13 @@ const PatientAdminScreen = () => {
               alignItems: "center",
             }}
           >
-            <DefaultText styles={{ marginVertical: wp(2) }}>
+            <DefaultText
+              styles={{ marginVertical: wp(2) }}
+              handler={() => {
+                navigation.navigate("Setting");
+                setOpenDropDown(false);
+              }}
+            >
               Setting
             </DefaultText>
           </View>

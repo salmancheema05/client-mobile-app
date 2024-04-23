@@ -9,25 +9,24 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { DefaultImage } from "../../components/images";
-import { DefaultHeading } from "../../components/headings";
-import { Ambulance, Clinic } from "../../components/icons";
 
 const HomeScreen = () => {
   return (
-    <Layout
-      emergencyBox={true}
-      headerstyles={{
-        borderBottomLeftRadius: 40,
-        borderBottomRightRadius: 40,
-      }}
-    >
-      <DefaultView styles={{}}>
-        <OurServices />
-        <GreateDoctors />
-        <PatientSay />
-      </DefaultView>
-    </Layout>
+    <View style={{ height: hp(105) }}>
+      <Layout
+        emergencyBox={true}
+        headerstyles={{
+          borderBottomLeftRadius: 40,
+          borderBottomRightRadius: 40,
+        }}
+      >
+        <DefaultView styles={{}}>
+          <OurServices />
+          <GreateDoctors />
+          <PatientSay />
+        </DefaultView>
+      </Layout>
+    </View>
   );
 };
 

@@ -13,7 +13,7 @@ import DefaultHorizontalScrolling from "../../../components/Scrolling";
 import { DefaultButton } from "../../../components/buttons";
 const DoctorDetailScreen = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: "white" }}>
+    <View style={{ height: hp(90), backgroundColor: "white" }}>
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView>
           <DefaultView

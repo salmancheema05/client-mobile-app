@@ -41,8 +41,8 @@ const DefaultButton: React.FC<ButtonProps> = ({
         ...textStyle,
       },
     },
-    view_profile: {
-      name: " Profile",
+    update: {
+      name: " Update",
       style: {
         paddingVertical: 5,
         paddingHorizontal: 20,

@@ -15,7 +15,6 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { DefaultButton } from "../../components/buttons";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { DefaultTouchableOpacity } from "../../components/touchableOpacity";
 type NavigationType = NavigationProp<
@@ -28,242 +27,244 @@ type NavigationType = NavigationProp<
 const FindDoctorScreen = () => {
   const navigation: NavigationType = useNavigation();
   return (
-    <Layout>
-      <DefaultView>
-        <DefaultTouchableOpacity
-          handler={() => navigation.navigate("DoctorDetail")}
-        >
-          <DefaultSection
-            styles={{
-              paddingHorizontal: wp(1),
-              paddingVertical: hp(0),
-              flexDirection: "row",
-            }}
+    <View style={{ height: hp(105) }}>
+      <Layout>
+        <DefaultView>
+          <DefaultTouchableOpacity
+            handler={() => navigation.navigate("DoctorDetail")}
           >
-            <View
-              style={{
+            <DefaultSection
+              styles={{
+                paddingHorizontal: wp(1),
+                paddingVertical: hp(0),
                 flexDirection: "row",
-                paddingTop: hp(1),
-                justifyContent: "center",
-                width: "25%",
-              }}
-            >
-              <CircleImage
-                source={require("../../images/doctorimage2.jpg")}
-                styles={{ marginTop: hp(0) }}
-              />
-            </View>
-            <View
-              style={{
-                paddingTop: hp(1),
-                width: "75%",
-                marginHorizontal: wp(2),
               }}
             >
               <View
                 style={{
                   flexDirection: "row",
-                  justifyContent: "space-between",
-                  height: hp(2),
-                  marginBottom: hp(1),
-                  paddingRight: wp(5),
+                  paddingTop: hp(1),
+                  justifyContent: "center",
+                  width: "25%",
                 }}
               >
-                <DefaultHeading tag="h6">Dr Salman Akbar</DefaultHeading>
-                <ReadOnlyRating
-                  userRating={4.5}
-                  starSize={16}
-                  viewRating="4.5"
-                  styles={{ paddingHorizontal: 0 }}
+                <CircleImage
+                  source={require("../../images/doctorimage2.jpg")}
+                  styles={{ marginTop: hp(0) }}
                 />
               </View>
+              <View
+                style={{
+                  paddingTop: hp(1),
+                  width: "75%",
+                  marginHorizontal: wp(2),
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    height: hp(2),
+                    marginBottom: hp(1),
+                    paddingRight: wp(5),
+                  }}
+                >
+                  <DefaultHeading tag="h6">Dr Salman Akbar</DefaultHeading>
+                  <ReadOnlyRating
+                    userRating={4.5}
+                    starSize={16}
+                    viewRating="4.5"
+                    styles={{ paddingHorizontal: 0 }}
+                  />
+                </View>
 
-              <DefaultText styles={{ marginBottom: hp(1) }}>Skin</DefaultText>
-              <DefaultText styles={{ marginBottom: hp(1) }}>
-                4 yrs experience, faisalabad
-              </DefaultText>
-              <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
-                Rs 1000 Fee
-              </DefaultHeading>
-            </View>
-          </DefaultSection>
-        </DefaultTouchableOpacity>
-        <DefaultTouchableOpacity
-          handler={() => navigation.navigate("DoctorDetail")}
-        >
-          <DefaultSection
-            styles={{
-              paddingHorizontal: wp(1),
-              paddingVertical: hp(0),
-              flexDirection: "row",
-            }}
+                <DefaultText styles={{ marginBottom: hp(1) }}>Skin</DefaultText>
+                <DefaultText styles={{ marginBottom: hp(1) }}>
+                  4 yrs experience, faisalabad
+                </DefaultText>
+                <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
+                  Rs 1000 Fee
+                </DefaultHeading>
+              </View>
+            </DefaultSection>
+          </DefaultTouchableOpacity>
+          <DefaultTouchableOpacity
+            handler={() => navigation.navigate("DoctorDetail")}
           >
-            <View
-              style={{
+            <DefaultSection
+              styles={{
+                paddingHorizontal: wp(1),
+                paddingVertical: hp(0),
                 flexDirection: "row",
-                paddingTop: hp(1),
-                justifyContent: "center",
-                width: "25%",
-              }}
-            >
-              <CircleImage
-                source={require("../../images/doctorimage2.jpg")}
-                styles={{ marginTop: hp(0) }}
-              />
-            </View>
-            <View
-              style={{
-                paddingTop: hp(1),
-                width: "75%",
-                marginHorizontal: wp(2),
               }}
             >
               <View
                 style={{
                   flexDirection: "row",
-                  justifyContent: "space-between",
-                  height: hp(2),
-                  marginBottom: hp(1),
-                  paddingRight: wp(5),
+                  paddingTop: hp(1),
+                  justifyContent: "center",
+                  width: "25%",
                 }}
               >
-                <DefaultHeading tag="h6">Dr Salman Akbar</DefaultHeading>
-                <ReadOnlyRating
-                  userRating={4.5}
-                  starSize={16}
-                  viewRating="4.5"
-                  styles={{ paddingHorizontal: 0 }}
+                <CircleImage
+                  source={require("../../images/doctorimage2.jpg")}
+                  styles={{ marginTop: hp(0) }}
                 />
               </View>
+              <View
+                style={{
+                  paddingTop: hp(1),
+                  width: "75%",
+                  marginHorizontal: wp(2),
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    height: hp(2),
+                    marginBottom: hp(1),
+                    paddingRight: wp(5),
+                  }}
+                >
+                  <DefaultHeading tag="h6">Dr Salman Akbar</DefaultHeading>
+                  <ReadOnlyRating
+                    userRating={4.5}
+                    starSize={16}
+                    viewRating="4.5"
+                    styles={{ paddingHorizontal: 0 }}
+                  />
+                </View>
 
-              <DefaultText styles={{ marginBottom: hp(1) }}>Skin</DefaultText>
-              <DefaultText styles={{ marginBottom: hp(1) }}>
-                4 yrs experience, faisalabad
-              </DefaultText>
-              <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
-                Rs 1000 Fee
-              </DefaultHeading>
-            </View>
-          </DefaultSection>
-        </DefaultTouchableOpacity>
-        <DefaultTouchableOpacity
-          handler={() => navigation.navigate("DoctorDetail")}
-        >
-          <DefaultSection
-            styles={{
-              paddingHorizontal: wp(1),
-              paddingVertical: hp(0),
-              flexDirection: "row",
-            }}
+                <DefaultText styles={{ marginBottom: hp(1) }}>Skin</DefaultText>
+                <DefaultText styles={{ marginBottom: hp(1) }}>
+                  4 yrs experience, faisalabad
+                </DefaultText>
+                <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
+                  Rs 1000 Fee
+                </DefaultHeading>
+              </View>
+            </DefaultSection>
+          </DefaultTouchableOpacity>
+          <DefaultTouchableOpacity
+            handler={() => navigation.navigate("DoctorDetail")}
           >
-            <View
-              style={{
+            <DefaultSection
+              styles={{
+                paddingHorizontal: wp(1),
+                paddingVertical: hp(0),
                 flexDirection: "row",
-                paddingTop: hp(1),
-                justifyContent: "center",
-                width: "25%",
-              }}
-            >
-              <CircleImage
-                source={require("../../images/doctorimage2.jpg")}
-                styles={{ marginTop: hp(0) }}
-              />
-            </View>
-            <View
-              style={{
-                paddingTop: hp(1),
-                width: "75%",
-                marginHorizontal: wp(2),
               }}
             >
               <View
                 style={{
                   flexDirection: "row",
-                  justifyContent: "space-between",
-                  height: hp(2),
-                  marginBottom: hp(1),
-                  paddingRight: wp(5),
+                  paddingTop: hp(1),
+                  justifyContent: "center",
+                  width: "25%",
                 }}
               >
-                <DefaultHeading tag="h6">Dr Salman Akbar</DefaultHeading>
-                <ReadOnlyRating
-                  userRating={4.5}
-                  starSize={16}
-                  viewRating="4.5"
-                  styles={{ paddingHorizontal: 0 }}
+                <CircleImage
+                  source={require("../../images/doctorimage2.jpg")}
+                  styles={{ marginTop: hp(0) }}
                 />
               </View>
+              <View
+                style={{
+                  paddingTop: hp(1),
+                  width: "75%",
+                  marginHorizontal: wp(2),
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    height: hp(2),
+                    marginBottom: hp(1),
+                    paddingRight: wp(5),
+                  }}
+                >
+                  <DefaultHeading tag="h6">Dr Salman Akbar</DefaultHeading>
+                  <ReadOnlyRating
+                    userRating={4.5}
+                    starSize={16}
+                    viewRating="4.5"
+                    styles={{ paddingHorizontal: 0 }}
+                  />
+                </View>
 
-              <DefaultText styles={{ marginBottom: hp(1) }}>Skin</DefaultText>
-              <DefaultText styles={{ marginBottom: hp(1) }}>
-                4 yrs experience, faisalabad
-              </DefaultText>
-              <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
-                Rs 1000 Fee
-              </DefaultHeading>
-            </View>
-          </DefaultSection>
-        </DefaultTouchableOpacity>
-        <DefaultTouchableOpacity
-          handler={() => navigation.navigate("DoctorDetail")}
-        >
-          <DefaultSection
-            styles={{
-              paddingHorizontal: wp(1),
-              paddingVertical: hp(0),
-              flexDirection: "row",
-            }}
+                <DefaultText styles={{ marginBottom: hp(1) }}>Skin</DefaultText>
+                <DefaultText styles={{ marginBottom: hp(1) }}>
+                  4 yrs experience, faisalabad
+                </DefaultText>
+                <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
+                  Rs 1000 Fee
+                </DefaultHeading>
+              </View>
+            </DefaultSection>
+          </DefaultTouchableOpacity>
+          <DefaultTouchableOpacity
+            handler={() => navigation.navigate("DoctorDetail")}
           >
-            <View
-              style={{
+            <DefaultSection
+              styles={{
+                paddingHorizontal: wp(1),
+                paddingVertical: hp(0),
                 flexDirection: "row",
-                paddingTop: hp(1),
-                justifyContent: "center",
-                width: "25%",
-              }}
-            >
-              <CircleImage
-                source={require("../../images/doctorimage2.jpg")}
-                styles={{ marginTop: hp(0) }}
-              />
-            </View>
-            <View
-              style={{
-                paddingTop: hp(1),
-                width: "75%",
-                marginHorizontal: wp(2),
               }}
             >
               <View
                 style={{
                   flexDirection: "row",
-                  justifyContent: "space-between",
-                  height: hp(2),
-                  marginBottom: hp(1),
-                  paddingRight: wp(5),
+                  paddingTop: hp(1),
+                  justifyContent: "center",
+                  width: "25%",
                 }}
               >
-                <DefaultHeading tag="h6">Dr Salman Akbar</DefaultHeading>
-                <ReadOnlyRating
-                  userRating={4.5}
-                  starSize={16}
-                  viewRating="4.5"
-                  styles={{ paddingHorizontal: 0 }}
+                <CircleImage
+                  source={require("../../images/doctorimage2.jpg")}
+                  styles={{ marginTop: hp(0) }}
                 />
               </View>
+              <View
+                style={{
+                  paddingTop: hp(1),
+                  width: "75%",
+                  marginHorizontal: wp(2),
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    height: hp(2),
+                    marginBottom: hp(1),
+                    paddingRight: wp(5),
+                  }}
+                >
+                  <DefaultHeading tag="h6">Dr Salman Akbar</DefaultHeading>
+                  <ReadOnlyRating
+                    userRating={4.5}
+                    starSize={16}
+                    viewRating="4.5"
+                    styles={{ paddingHorizontal: 0 }}
+                  />
+                </View>
 
-              <DefaultText styles={{ marginBottom: hp(1) }}>Skin</DefaultText>
-              <DefaultText styles={{ marginBottom: hp(1) }}>
-                4 yrs experience, faisalabad
-              </DefaultText>
-              <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
-                Rs 1000 Fee
-              </DefaultHeading>
-            </View>
-          </DefaultSection>
-        </DefaultTouchableOpacity>
-      </DefaultView>
-    </Layout>
+                <DefaultText styles={{ marginBottom: hp(1) }}>Skin</DefaultText>
+                <DefaultText styles={{ marginBottom: hp(1) }}>
+                  4 yrs experience, faisalabad
+                </DefaultText>
+                <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
+                  Rs 1000 Fee
+                </DefaultHeading>
+              </View>
+            </DefaultSection>
+          </DefaultTouchableOpacity>
+        </DefaultView>
+      </Layout>
+    </View>
   );
 };
 

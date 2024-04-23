@@ -19,27 +19,35 @@ interface Item {
   label: string;
   value: string;
 }
-const DefaultTextInput: React.FC<InputProps> = ({ icon, styles, ...props }) => {
+const DefaultTextInput: React.FC<InputProps> = ({
+  icon = null,
+  styles,
+  ...props
+}) => {
   return (
     <View
       style={{
-        backgroundColor: "#f1f4f5",
         width: "100%",
         padding: 10,
         borderRadius: 20,
         marginTop: hp(3),
         flexDirection: "row",
+        borderWidth: 0.5,
+        borderColor: "lightgray",
         ...styles,
       }}
     >
-      <View
-        style={{
-          marginTop: 5,
-          marginHorizontal: 5,
-        }}
-      >
-        {icon}
-      </View>
+      {icon ? (
+        <View
+          style={{
+            marginTop: 5,
+            marginHorizontal: 5,
+          }}
+        >
+          {icon}
+        </View>
+      ) : null}
+
       <View
         style={{
           flex: 1,
@@ -76,9 +84,9 @@ const DefaultSelectBox: React.FC<SelectProps> = ({
         style={{
           borderColor: "lightgray",
           borderRadius: 20,
-          borderWidth: 2,
+          borderWidth: 1,
           backgroundColor: "white",
-          marginTop: 10,
+          marginTop: 20,
           paddingHorizontal: 10,
           width: "100%",
         }}

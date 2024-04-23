@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Settings, View } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 import {
   HomeScreen,
   LoginScreen,
@@ -8,6 +8,7 @@ import {
   DoctorDetailScreen,
   PatientAdminScreen,
   PatientSetting,
+  DoctorAdminScreen,
 } from "./src/importScreens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -61,11 +62,24 @@ export default function App() {
             options={{
               tabBarStyle: { display: "none" },
               tabBarButton: () => null,
+              headerShown: true,
+              headerStyle: {
+                backgroundColor: "#009eff",
+              },
+              headerTintColor: "white",
             }}
           />
           <Tab.Screen
             name="PatientAdmin"
             component={PatientAdminScreen}
+            options={{
+              tabBarStyle: { display: "none" },
+              tabBarButton: () => null,
+            }}
+          />
+          <Tab.Screen
+            name="DoctorAdmin"
+            component={DoctorAdminScreen}
             options={{
               tabBarStyle: { display: "none" },
               tabBarButton: () => null,

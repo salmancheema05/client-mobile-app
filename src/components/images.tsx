@@ -20,12 +20,12 @@ interface ImageProps {
 const DefaultImage: React.FC<ImageProps> = ({
   source,
   styles,
-  resizeMode = "cover",
+  resizeMode = "stretch",
 }) => {
   return (
     <Image
       source={source}
-      style={[{ width: 100, height: 100 }, styles]}
+      style={[{ width: 120, height: 130, borderRadius: 10 }, styles]}
       resizeMode={resizeMode}
     />
   );
