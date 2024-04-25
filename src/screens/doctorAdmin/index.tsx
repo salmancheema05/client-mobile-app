@@ -21,7 +21,7 @@ const DoctorAdminScreen = () => {
   const [selectTab, setSelectTab] = useState<number>(0);
   return (
     <>
-      <View
+      {/* <View
         style={{
           backgroundColor: "#009eff",
           width: wp(100),
@@ -196,7 +196,7 @@ const DoctorAdminScreen = () => {
             </ScrollView>
           </SafeAreaView>
         </View>
-      </DefaultView>
+      </DefaultView> */}
     </>
   );
 };

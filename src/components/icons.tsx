@@ -26,8 +26,8 @@ export const Login: React.FC<Iconprops> = ({ size = 30, color = "white" }) => (
 );
 export const Location: React.FC<Iconprops> = ({
   size = 30,
-  color = "white",
-}) => <Entypo name="location" size={size} color={color} />;
+  color = "hsla(215, 24%, 39%, 1)",
+}) => <Entypo name="location-pin" size={size} color={color} />;
 
 export const Services: React.FC<Iconprops> = ({
   size = 30,
@@ -63,3 +63,8 @@ export const ThreeDotVertical: React.FC<Iconprops> = ({
   size = 20,
   color = "white",
 }) => <Entypo name="dots-three-vertical" size={size} color={color} />;
+
+export const Bell: React.FC<Iconprops> = ({
+  size = 20,
+  color = "hsla(215, 24%, 39%, 1)",
+}) => <Fontisto name="bell-alt" size={size} color={color} />;

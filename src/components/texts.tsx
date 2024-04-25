@@ -14,7 +14,14 @@ const DefaultText: React.FC<TextProps> = ({
 }) => {
   const renderText = () => {
     return (
-      <Text style={{ color: "gray", textAlign: "justify", ...styles }}>
+      <Text
+        style={{
+          fontSize: 18,
+          fontWeight: "500",
+          color: "hsla(220, 16%, 50%, 1)",
+          ...styles,
+        }}
+      >
         {children}
       </Text>
     );

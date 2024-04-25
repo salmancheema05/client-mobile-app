@@ -1,4 +1,4 @@
-import { View, ViewStyle, Dimensions } from "react-native";
+import { View, ViewStyle } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -10,13 +10,13 @@ interface ViewProps {
 }
 
 const DefaultView: React.FC<ViewProps> = ({ children, styles }) => {
-  const wudth = Dimensions.get("window").width;
   return (
     <View
       style={{
         flex: 1,
-        marginHorizontal: wp(5),
-        marginBottom: hp(10),
+        backgroundColor: "white",
+        paddingHorizontal: wp(6),
+        marginTop: hp(3),
         ...styles,
       }}
     >
@@ -42,11 +42,7 @@ const DefaultSection: React.FC<ViewProps> = ({ children, styles }) => {
   return (
     <View
       style={{
-        backgroundColor: "white",
-        marginTop: hp(3),
-        paddingHorizontal: wp(3),
-        paddingVertical: hp(3),
-        borderRadius: 20,
+        marginTop: hp(2),
         ...styles,
       }}
     >

@@ -30,7 +30,7 @@ const PatientAdminScreen = () => {
   const navigation: NavigationType = useNavigation();
   return (
     <>
-      <View
+      {/* <View
         style={{
           backgroundColor: "#009eff",
           width: "100%",
@@ -183,7 +183,7 @@ const PatientAdminScreen = () => {
             />
           </BoxWithShadow>
         </DefaultGrid>
-      </DefaultView>
+      </DefaultView> */}
     </>
   );
 };

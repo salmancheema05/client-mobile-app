@@ -10,7 +10,7 @@ const DoctorDetailScreen = () => {
   const navigation = useNavigation();
   return (
     <>
-      <Header navigation={navigation} />
+      {/* <Header navigation={navigation} />
       <Tab.Navigator
         screenOptions={{
           tabBarActiveTintColor: "white",
@@ -21,7 +21,7 @@ const DoctorDetailScreen = () => {
       >
         <Tab.Screen name="Over View" component={OverView} />
         <Tab.Screen name="Feed Back" component={FeedBack} />
-      </Tab.Navigator>
+      </Tab.Navigator> */}
     </>
   );
 };

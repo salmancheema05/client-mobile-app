@@ -20,7 +20,7 @@ export default function App() {
   const Tab = createBottomTabNavigator();
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar style="light" backgroundColor="#009eff" />
+      <StatusBar backgroundColor="white" />
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
@@ -33,7 +33,7 @@ export default function App() {
             component={HomeScreen}
             options={{ tabBarIcon: () => <Home color="#009eff" size={25} /> }}
           />
-          <Tab.Screen
+          {/* <Tab.Screen
             name="FindDoctor"
             component={FindDoctorScreen}
             options={{
@@ -92,7 +92,7 @@ export default function App() {
               tabBarStyle: { display: "none" },
               tabBarButton: () => null,
             }}
-          />
+          /> */}
         </Tab.Navigator>
       </NavigationContainer>
     </View>
