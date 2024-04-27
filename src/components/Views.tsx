@@ -17,6 +17,7 @@ const DefaultView: React.FC<ViewProps> = ({ children, styles }) => {
         backgroundColor: "white",
         paddingHorizontal: wp(6),
         marginTop: hp(3),
+        paddingBottom: hp(3),
         ...styles,
       }}
     >

@@ -6,6 +6,7 @@ import {
 } from "react-native-responsive-screen";
 
 import DropDownPicker, { ItemType } from "react-native-dropdown-picker";
+
 interface InputProps extends TextInputProps {
   icon?: React.ReactNode;
   styles?: object;
@@ -22,41 +23,25 @@ interface Item {
 const DefaultTextInput: React.FC<InputProps> = ({
   icon = null,
   styles,
-  ...props
+  ...rest
 }) => {
   return (
     <View
       style={{
-        width: "100%",
-        padding: 10,
-        borderRadius: 20,
-        marginTop: hp(3),
+        backgroundColor: "hsla(220, 1%, 96%, 1)",
+        paddingHorizontal: wp(3),
+        paddingVertical: hp(2),
+        borderRadius: 10,
+        height: hp(7),
         flexDirection: "row",
-        borderWidth: 0.5,
-        borderColor: "lightgray",
         ...styles,
       }}
     >
-      {icon ? (
-        <View
-          style={{
-            marginTop: 5,
-            marginHorizontal: 5,
-          }}
-        >
-          {icon}
-        </View>
-      ) : null}
-
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "flex-start",
-          marginLeft: 5,
-        }}
-      >
-        <TextInput {...props} />
-      </View>
+      {icon}
+      <TextInput
+        {...rest}
+        style={{ paddingHorizontal: wp(3), fontWeight: "400" }}
+      />
     </View>
   );
 };

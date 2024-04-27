@@ -8,6 +8,7 @@ import { DefaultText } from "../../../components/texts";
 import { DefaultHeading } from "../../../components/headings";
 import { Location, Bell, Search } from "../../../components/icons";
 import { DefaultSection } from "../../../components/Views";
+import { DefaultTextInput } from "../../../components/textinputs";
 
 const Header = () => {
   return (
@@ -68,20 +69,10 @@ const Header = () => {
           </View>
         </View>
       </View>
-      <DefaultSection
-        styles={{
-          backgroundColor: "hsla(220, 1%, 96%, 1)",
-          paddingHorizontal: wp(3),
-          paddingVertical: hp(2),
-          borderRadius: 10,
-
-          flexDirection: "row",
-        }}
-      >
-        <Search color="hsla(218, 11%, 69%, 1)" />
-        <TextInput
-          style={{ paddingHorizontal: wp(3), fontWeight: "400" }}
-          placeholder="Search Doctor..."
+      <DefaultSection>
+        <DefaultTextInput
+          icon={<Search color="hsla(218, 11%, 69%, 1)" size={20} />}
+          placeholder="Search Doctor"
         />
       </DefaultSection>
     </>

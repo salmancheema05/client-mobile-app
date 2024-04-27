@@ -38,12 +38,13 @@ const DefaultTitleWithLink: React.FC<titleProps> = ({
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
+        marginBottom: 10,
       }}
     >
       <Text
         style={{
-          fontSize: 20,
-          fontWeight: "800",
+          fontSize: 16,
+          fontWeight: "900",
           color: "hsla(212, 52%, 23%, 1)",
           ...styles,
         }}

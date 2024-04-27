@@ -1,11 +1,13 @@
 import React from "react";
-import { View, Text, ImageSourcePropType } from "react-native";
+import { View, ImageSourcePropType } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { DefaultText } from "./texts";
 import { DefaultImage } from "./images";
+import { categoryTransparentBg } from "../importAllImages";
+
 interface CategoryProps {
   bgcolor: string;
   name: string;
@@ -17,7 +19,6 @@ const CategoryItem: React.FC<CategoryProps> = ({ source, name, bgcolor }) => {
       style={{
         width: "22%",
         height: hp(15),
-        marginVertical: hp(1),
       }}
     >
       <View
@@ -30,7 +31,7 @@ const CategoryItem: React.FC<CategoryProps> = ({ source, name, bgcolor }) => {
       >
         <View style={{}}>
           <DefaultImage
-            source={require("../images/categoryellipse.png")}
+            source={categoryTransparentBg}
             styles={{ width: 50, height: 50 }}
           />
         </View>

@@ -3,7 +3,7 @@ import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
-
+import { EvilIcons } from "@expo/vector-icons";
 interface Iconprops {
   size?: number;
   color?: string;
@@ -68,3 +68,8 @@ export const Bell: React.FC<Iconprops> = ({
   size = 20,
   color = "hsla(215, 24%, 39%, 1)",
 }) => <Fontisto name="bell-alt" size={size} color={color} />;
+
+export const OutLineLocation: React.FC<Iconprops> = ({
+  size = 30,
+  color = "hsla(215, 24%, 39%, 1)",
+}) => <EvilIcons name="location" size={size} color={color} />;
