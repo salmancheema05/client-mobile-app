@@ -25,7 +25,7 @@ const DefaultImage: React.FC<ImageProps> = ({
   return (
     <Image
       source={source}
-      style={[{ width: 120, height: 130, borderRadius: 10 }, styles]}
+      style={[{ width: "100%", height: "100%", borderRadius: 10 }, styles]}
       resizeMode={resizeMode}
     />
   );

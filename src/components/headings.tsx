@@ -1,14 +1,10 @@
 import { TextStyle, Text, View } from "react-native";
 import React from "react";
 import { DefaultTouchableOpacity } from "./touchableOpacity";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
+import { DefaultText } from "./texts";
+
 interface TextProps {
-  tag?: string;
   styles?: TextStyle;
-  handler?: () => void;
   children?: React.ReactNode;
 }
 interface titleProps {
@@ -17,51 +13,22 @@ interface titleProps {
   styles?: TextStyle;
   handler?: () => void;
 }
-const DefaultHeading: React.FC<TextProps> = ({
-  children,
-  handler = null,
-  tag = "h1",
-  styles,
-}) => {
-  const renderText = () => {
-    return (
-      <Text
-        style={{
-          color: "black",
-          fontWeight: "bold",
-          fontSize:
-            tag === "h1"
-              ? 30
-              : tag === "h2"
-              ? 25
-              : tag === "h3"
-              ? 22
-              : tag === "h4"
-              ? 18
-              : tag === "h5"
-              ? 16
-              : tag === "h6"
-              ? 14
-              : null,
-          ...styles,
-        }}
-      >
-        {children}
-      </Text>
-    );
-  };
-
-  return handler ? (
-    <DefaultTouchableOpacity handler={handler}>
-      {renderText()}
-    </DefaultTouchableOpacity>
-  ) : (
-    renderText()
+const DefaultHeading: React.FC<TextProps> = ({ children, styles }) => {
+  return (
+    <Text
+      style={{
+        fontSize: 20,
+        fontWeight: "800",
+        color: "hsla(220, 16%, 50%, 1)",
+        ...styles,
+      }}
+    >
+      {children}
+    </Text>
   );
 };
 
 const DefaultTitleWithLink: React.FC<titleProps> = ({
-  tag = "h4",
   handler = null,
   title,
   styles,
@@ -71,17 +38,20 @@ const DefaultTitleWithLink: React.FC<titleProps> = ({
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
-        marginBottom: 15,
       }}
     >
-      <DefaultHeading tag={tag}>{title}</DefaultHeading>
+      <Text
+        style={{
+          fontSize: 20,
+          fontWeight: "800",
+          color: "hsla(212, 52%, 23%, 1)",
+          ...styles,
+        }}
+      >
+        {title}
+      </Text>
       <DefaultTouchableOpacity handler={handler}>
-        <DefaultHeading
-          tag="h4"
-          styles={{ marginRight: 0, color: "blue", ...styles }}
-        >
-          See All
-        </DefaultHeading>
+        <DefaultText>See All</DefaultText>
       </DefaultTouchableOpacity>
     </View>
   );

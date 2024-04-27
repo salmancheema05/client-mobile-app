@@ -23,15 +23,26 @@ const CategoryItem: React.FC<CategoryProps> = ({ source, name, bgcolor }) => {
       <View
         style={{
           backgroundColor: bgcolor,
-          justifyContent: "center",
-          alignItems: "center",
           borderRadius: 10,
           width: "100%",
-
           height: hp(10),
         }}
       >
-        <DefaultImage source={source} styles={{ width: 35, height: 35 }} />
+        <View style={{}}>
+          <DefaultImage
+            source={require("../images/categoryellipse.png")}
+            styles={{ width: 50, height: 50 }}
+          />
+        </View>
+        <View
+          style={{
+            position: "absolute",
+            top: "25%",
+            left: "25%",
+          }}
+        >
+          <DefaultImage source={source} styles={{ width: 36, height: 36 }} />
+        </View>
       </View>
       <DefaultText
         styles={{ textAlign: "center", fontSize: 15, marginTop: hp(1) }}

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TextInput, Text } from "react-native";
+import { View } from "react-native";
 import {
   DefaultGrid,
   DefaultSection,
@@ -10,156 +10,87 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { Bell, Location, Search } from "../../components/icons";
 import { DefaultText } from "../../components/texts";
 import { DefaultImage } from "../../components/images";
-import CategoryItem from "../../components/categories";
+import Categories from "./component/categories";
+import Header from "./component/header";
+
 const HomeScreen = () => {
   return (
     <DefaultView>
-      <View
-        style={{
-          width: "100%",
-          height: hp(10),
-          flexDirection: "row",
-        }}
-      >
-        <View style={{ width: "60%", height: hp(10) }}>
-          <View
-            style={{
-              width: "100%",
-              height: hp(5),
-              justifyContent: "flex-end",
-              marginBottom: hp(1),
-              paddingLeft: hp(1),
-            }}
-          >
-            <DefaultText>Location</DefaultText>
-          </View>
-          <View
-            style={{
-              width: "100%",
-              height: hp(5),
-              flexDirection: "row",
-            }}
-          >
-            <View>
-              <Location />
-            </View>
-            <View>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: "800",
-                  color: "hsla(220, 16%, 50%, 1)",
-                }}
-              >
-                Seattle,USA
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          style={{
-            width: "40%",
-            height: hp(10),
-            alignItems: "flex-end",
-            marginTop: hp(4),
-          }}
-        >
-          <View
-            style={{
-              backgroundColor: "hsla(220, 1%, 96%, 1)",
-              width: wp(10),
-              height: wp(10),
-              borderRadius: 100,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Bell />
-          </View>
-        </View>
-      </View>
-      <DefaultSection
-        styles={{
-          backgroundColor: "hsla(220, 1%, 96%, 1)",
-          paddingHorizontal: wp(3),
-          paddingVertical: hp(2),
-          borderRadius: 10,
-
-          flexDirection: "row",
-        }}
-      >
-        <Search color="hsla(218, 11%, 69%, 1)" />
-        <TextInput
-          style={{ paddingHorizontal: wp(3), fontWeight: "400" }}
-          placeholder="Search Doctor..."
-        />
-      </DefaultSection>
+      <Header />
       <DefaultSection>
         <View
           style={{
+            backgroundColor: "#4f928a",
             width: "100%",
-            height: hp(4),
+            height: hp(25),
+            borderRadius: 10,
             flexDirection: "row",
             justifyContent: "space-between",
           }}
         >
-          <Text
+          <View
+            style={{ width: 150, height: 110, position: "absolute", top: 0 }}
+          >
+            <DefaultImage
+              source={require("../../images/slidertransparentbg.png")}
+              styles={{ width: 150, height: 110 }}
+            />
+          </View>
+          <View
             style={{
-              fontSize: 20,
-              fontWeight: "800",
-              color: "hsla(212, 52%, 23%, 1)",
+              width: "100%",
+              flexDirection: "row",
+              paddingTop: hp(3),
             }}
           >
-            Categories
-          </Text>
-          <DefaultText>See All</DefaultText>
+            <View style={{ width: "60%", height: "100%", paddingLeft: wp(4) }}>
+              <DefaultText styles={{ color: "white", fontWeight: "800" }}>
+                Looking For
+              </DefaultText>
+              <DefaultText
+                styles={{
+                  color: "white",
+                  fontWeight: "800",
+                  marginTop: hp(1),
+                }}
+              >
+                Specialist Doctors?
+              </DefaultText>
+              <DefaultText
+                styles={{
+                  color: "white",
+                  fontSize: 16,
+                  marginTop: hp(1),
+                  lineHeight: 30,
+                }}
+              >
+                Schedule an appointment with our top doctors.
+              </DefaultText>
+            </View>
+            <View
+              style={{
+                width: "40%",
+                height: "100%",
+                alignItems: "center",
+              }}
+            >
+              <DefaultImage
+                source={require("../../images/doctorImage3.png")}
+                styles={{ width: 200 }}
+              />
+            </View>
+          </View>
+          <View style={{ position: "absolute", bottom: 0, left: wp(20) }}>
+            <DefaultImage
+              source={require("../../images/slidertransparentbg1.png")}
+              styles={{ width: 150, height: 30 }}
+            />
+          </View>
         </View>
-        <DefaultGrid styles={{ justifyContent: "space-between" }}>
-          <CategoryItem
-            source={require("../../images/category1.png")}
-            bgcolor="hsla(357, 33%, 86%, 1)"
-            name=" Dentistry"
-          />
-          <CategoryItem
-            source={require("../../images/category2.png")}
-            bgcolor="hsla(134, 24%, 80%, 1)"
-            name=" Cardiolo.."
-          />
-          <CategoryItem
-            source={require("../../images/category1.png")}
-            bgcolor="hsla(24, 49%, 80%, 1)"
-            name="Pulmono.."
-          />
-          <CategoryItem
-            source={require("../../images/category1.png")}
-            bgcolor="hsla(255, 21%, 70%, 1)"
-            name="General"
-          />
-          <CategoryItem
-            source={require("../../images/category1.png")}
-            bgcolor="hsla(186, 50%, 40%, 1)"
-            name=" Neurolo.."
-          />
-          <CategoryItem
-            source={require("../../images/category1.png")}
-            bgcolor="hsla(258, 65%, 58%, 1)"
-            name="Gastroen.."
-          />
-          <CategoryItem
-            source={require("../../images/category7.png")}
-            bgcolor="hsla(1, 18%, 80%, 1)"
-            name="Laborato.."
-          />
-          <CategoryItem
-            source={require("../../images/category8.png")}
-            bgcolor="hsla(191, 38%, 76%, 1))"
-            name=" Vaccinat.."
-          />
-        </DefaultGrid>
       </DefaultSection>
+      <Categories />
     </DefaultView>
   );
 };

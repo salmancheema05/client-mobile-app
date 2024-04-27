@@ -31,13 +31,31 @@ export default function App() {
           <Tab.Screen
             name="Home"
             component={HomeScreen}
-            options={{ tabBarIcon: () => <Home color="#009eff" size={25} /> }}
+            options={{
+              tabBarIcon: ({ focused }) => (
+                <View
+                  style={{
+                    backgroundColor: focused ? "hsla(220, 1%, 96%, 1)" : null,
+                    width: 35,
+                    height: 35,
+                    borderRadius: 100,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Home
+                    color={focused ? "hsla(220, 16%, 50%, 1)" : "#a9aeb9"}
+                    size={25}
+                  />
+                </View>
+              ),
+            }}
           />
-          {/* <Tab.Screen
+          <Tab.Screen
             name="FindDoctor"
             component={FindDoctorScreen}
             options={{
-              tabBarIcon: () => <Search color="#009eff" size={25} />,
+              tabBarIcon: () => <Search color="#a9aeb9" size={25} />,
             }}
           />
           <Tab.Screen
@@ -45,7 +63,7 @@ export default function App() {
             component={LoginScreen}
             options={{
               tabBarStyle: { display: "none" },
-              tabBarIcon: () => <Login color="#009eff" size={25} />,
+              tabBarIcon: () => <Login color="#a9aeb9" size={25} />,
             }}
           />
           <Tab.Screen
@@ -92,7 +110,7 @@ export default function App() {
               tabBarStyle: { display: "none" },
               tabBarButton: () => null,
             }}
-          /> */}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </View>
