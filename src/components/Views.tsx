@@ -1,12 +1,17 @@
+import React from "react";
 import { View, ViewStyle } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import React from "react";
+
+import { DefaultHeading } from "./headings";
+import { LeftArrow } from "./icons";
+
 interface ViewProps {
   styles?: ViewStyle;
-  children: React.ReactNode;
+  title?: string;
+  children?: React.ReactNode;
 }
 
 const DefaultView: React.FC<ViewProps> = ({ children, styles }) => {
@@ -52,20 +57,30 @@ const DefaultSection: React.FC<ViewProps> = ({ children, styles }) => {
   );
 };
 
-const BoxWithShadow: React.FC<ViewProps> = ({ children, styles }) => {
+const Header: React.FC<ViewProps> = ({ title, styles }) => {
   return (
-    <View
-      style={{
-        shadowColor: "lightgray",
-        shadowOffset: { width: 0, height: 0 },
-        elevation: 5,
-        borderRadius: 5,
-        ...styles,
-      }}
-    >
-      {children}
+    <View style={{ height: hp(6), flexDirection: "row" }}>
+      <View
+        style={{
+          height: hp(8),
+          width: "10%",
+          justifyContent: "center",
+        }}
+      >
+        <LeftArrow />
+      </View>
+      <View
+        style={{
+          height: hp(8),
+          width: "90%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <DefaultHeading>{title}</DefaultHeading>
+      </View>
     </View>
   );
 };
 
-export { DefaultView, DefaultGrid, DefaultSection, BoxWithShadow };
+export { DefaultView, DefaultGrid, DefaultSection, Header };

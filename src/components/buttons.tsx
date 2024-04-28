@@ -24,20 +24,37 @@ const DefaultButton: React.FC<ButtonProps> = ({
   children = null,
 }) => {
   const buttonMappings: ButtonMapping = {
-    default: {
-      name: "Default",
+    Remove: {
+      name: "Yes,Remove",
       style: {
-        backgroundColor: "#009eff", // Provide default color if theme not accessible
-        width: "100%",
+        backgroundColor: "hsla(212, 52%, 23%, 1)",
+        width: "50%",
         color: "white",
-        padding: 10, // Use numbers for padding instead of strings
-        borderRadius: 10,
+        padding: 10,
+        borderRadius: 40,
       },
       textStyle: {
         textTransform: "none",
         fontSize: 18,
         alignSelf: "center",
         color: "white",
+        ...textStyle,
+      },
+    },
+    Cancel: {
+      name: "Cancel",
+      style: {
+        backgroundColor: "hsla(220, 3%, 92%, 1)",
+        width: "50%",
+        color: "white",
+        padding: 10,
+        borderRadius: 40,
+      },
+      textStyle: {
+        textTransform: "none",
+        fontSize: 18,
+        alignSelf: "center",
+        color: "hsla(212, 52%, 23%, 1)",
         ...textStyle,
       },
     },

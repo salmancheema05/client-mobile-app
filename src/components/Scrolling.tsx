@@ -1,4 +1,4 @@
-import { ScrollView, View } from "react-native";
+import { SafeAreaView, ScrollView, View } from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
@@ -22,5 +22,16 @@ const DefaultHorizontalScrolling: React.FC<ScrollingProps> = ({
     </ScrollView>
   );
 };
-
-export default DefaultHorizontalScrolling;
+const ScrollVertical: React.FC<ScrollingProps> = ({ children }) => {
+  return (
+    <SafeAreaView>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ flexGrow: 1 }}
+      >
+        {children}
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+export { DefaultHorizontalScrolling, ScrollVertical };

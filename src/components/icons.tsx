@@ -35,17 +35,20 @@ export const Services: React.FC<Iconprops> = ({
 }) => <MaterialIcons name="medical-services" size={size} color={color} />;
 export const LeftArrow: React.FC<Iconprops> = ({
   size = 25,
-  color = "white",
+  color = "hsla(215, 24%, 39%, 1)",
 }) => <AntDesign name="arrowleft" size={size} color={color} />;
 export const Share: React.FC<Iconprops> = ({ size = 25, color = "white" }) => (
   <Entypo name="share" size={size} color={color} />
 );
 
-export const Ambulance: React.FC<Iconprops> = ({
+export const OutLineHeart: React.FC<Iconprops> = ({
   size = 25,
-  color = "red",
-}) => <FontAwesome5 name="ambulance" size={size} color={color} />;
-
+  color = "hsla(215, 24%, 39%, 1)",
+}) => <AntDesign name="hearto" size={size} color={color} />;
+export const Heart: React.FC<Iconprops> = ({
+  size = 25,
+  color = "hsla(212, 52%, 23%, 1)",
+}) => <Entypo name="heart" size={size} color={color} />;
 export const Clinic: React.FC<Iconprops> = ({ size = 25, color = "red" }) => (
   <FontAwesome5 name="clinic-medical" size={size} color={color} />
 );

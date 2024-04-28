@@ -6,3 +6,4 @@ export { default as DoctorDetailScreen } from "./screens/doctorDetail/index";
 export { default as PatientAdminScreen } from "./screens/patientadmin/index";
 export { default as DoctorAdminScreen } from "./screens/doctorAdmin/index";
 export { default as PatientSetting } from "./screens/patientadmin/setting";
+export { default as FavoritesScreen } from "./screens/favorites/index";

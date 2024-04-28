@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View } from "react-native";
 import {
   HomeScreen,
   LoginScreen,
@@ -9,11 +9,12 @@ import {
   PatientAdminScreen,
   PatientSetting,
   DoctorAdminScreen,
+  FavoritesScreen,
 } from "./src/importScreens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Home, Login, Search } from "./src/components/icons";
+import { Home, Login, Heart, Search } from "./src/components/icons";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -52,10 +53,49 @@ export default function App() {
             }}
           />
           <Tab.Screen
+            name="Favorites"
+            component={FavoritesScreen}
+            options={{
+              tabBarIcon: ({ focused }) => (
+                <View
+                  style={{
+                    backgroundColor: focused ? "hsla(220, 1%, 96%, 1)" : null,
+                    width: 35,
+                    height: 35,
+                    borderRadius: 100,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Heart
+                    color={focused ? "hsla(220, 16%, 50%, 1)" : "#a9aeb9"}
+                    size={25}
+                  />
+                </View>
+              ),
+            }}
+          />
+          <Tab.Screen
             name="FindDoctor"
             component={FindDoctorScreen}
             options={{
-              tabBarIcon: () => <Search color="#a9aeb9" size={25} />,
+              tabBarIcon: ({ focused }) => (
+                <View
+                  style={{
+                    backgroundColor: focused ? "hsla(220, 1%, 96%, 1)" : null,
+                    width: 35,
+                    height: 35,
+                    borderRadius: 100,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Search
+                    color={focused ? "hsla(220, 16%, 50%, 1)" : "#a9aeb9"}
+                    size={25}
+                  />
+                </View>
+              ),
             }}
           />
           <Tab.Screen
