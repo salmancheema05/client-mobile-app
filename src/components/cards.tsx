@@ -34,6 +34,7 @@ interface DoctorCardProps extends ClinicCardProps {
   departmentName: string;
   totalRating: string;
   favoritesIcone?: boolean;
+  doctorDetail?: () => void;
 }
 export const ClinicCard: React.FC<ClinicCardProps> = ({
   source,
@@ -133,95 +134,96 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
   source,
   handler,
   favoritesIcone = false,
+  doctorDetail,
 }) => {
   return (
-    <Card
-      style={{
-        width: "100%",
-        height: hp(18),
-        marginBottom: wp(5),
-        flexDirection: "row",
-      }}
-    >
-      <View
+    <DefaultTouchableOpacity handler={doctorDetail}>
+      <Card
         style={{
-          width: "35%",
+          width: "100%",
           height: hp(18),
-          paddingHorizontal: wp(3),
-          paddingVertical: hp(1),
-        }}
-      >
-        <DefaultImage source={source} />
-      </View>
-      <View
-        style={{
-          width: "65%",
-          marginVertical: hp(1),
+          marginBottom: wp(5),
+          flexDirection: "row",
         }}
       >
         <View
           style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            paddingBottom: hp(1),
-            borderBottomWidth: 0.5,
-            paddingHorizontal: wp(1.4),
+            width: "35%",
+            height: hp(18),
+            paddingHorizontal: wp(3),
+            paddingVertical: hp(1),
           }}
         >
-          <View>
-            <DefaultHeading>Dr.{name}</DefaultHeading>
-          </View>
-          <DefaultTouchableOpacity
-            styles={{ paddingRight: wp(2), paddingTop: hp(0.5) }}
-            handler={handler}
-          >
-            {favoritesIcone == false ? (
-              <OutLineHeart size={20} />
-            ) : (
-              <Heart size={20} />
-            )}
-          </DefaultTouchableOpacity>
-        </View>
-        <View style={{ marginTop: hp(1), paddingHorizontal: wp(1.4) }}>
-          <DefaultHeading styles={{ fontSize: 16 }}>
-            {departmentName}
-          </DefaultHeading>
+          <DefaultImage source={source} />
         </View>
         <View
           style={{
-            flexDirection: "row",
-            marginTop: hp(1),
-          }}
-        >
-          <OutLineLocation size={22} />
-
-          <DefaultText>{ClinicAddress}</DefaultText>
-        </View>
-        <View
-          style={{
-            flexDirection: "row",
-            marginTop: hp(1),
+            width: "65%",
+            marginVertical: hp(1),
           }}
         >
           <View
             style={{
-              borderRightWidth: 0.5,
-              paddingRight: wp(3),
-              borderRightColor: "hsla(220, 16%, 50%, 1)",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              paddingBottom: hp(1),
+              borderBottomWidth: 0.5,
+              paddingHorizontal: wp(1.4),
             }}
           >
-            <ReadOnlyRating
-              starLenght={1}
-              userRating={rating}
-              starSize={16}
-              viewRating={totalRating}
-            />
+            <View>
+              <DefaultHeading>Dr.{name}</DefaultHeading>
+            </View>
+            <DefaultTouchableOpacity
+              styles={{ paddingRight: wp(2), paddingTop: hp(0.5) }}
+              handler={handler}
+            >
+              {favoritesIcone == false ? (
+                <OutLineHeart size={20} />
+              ) : (
+                <Heart size={20} />
+              )}
+            </DefaultTouchableOpacity>
           </View>
-          <View style={{ paddingLeft: hp(1) }}>
-            <DefaultText>{totalViews} Reviews</DefaultText>
+          <View style={{ marginTop: hp(1), paddingHorizontal: wp(1.4) }}>
+            <DefaultHeading>{departmentName}</DefaultHeading>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              marginTop: hp(1),
+            }}
+          >
+            <OutLineLocation size={22} />
+
+            <DefaultText>{ClinicAddress}</DefaultText>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              marginTop: hp(1),
+            }}
+          >
+            <View
+              style={{
+                borderRightWidth: 0.5,
+                paddingRight: wp(3),
+                borderRightColor: "hsla(220, 16%, 50%, 1)",
+              }}
+            >
+              <ReadOnlyRating
+                starLenght={1}
+                userRating={rating}
+                starSize={16}
+                viewRating={totalRating}
+              />
+            </View>
+            <View style={{ paddingLeft: hp(1) }}>
+              <DefaultText>{totalViews} Reviews</DefaultText>
+            </View>
           </View>
         </View>
-      </View>
-    </Card>
+      </Card>
+    </DefaultTouchableOpacity>
   );
 };

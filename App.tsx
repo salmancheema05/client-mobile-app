@@ -10,6 +10,7 @@ import {
   PatientSetting,
   DoctorAdminScreen,
   FavoritesScreen,
+  BookingScreen,
 } from "./src/importScreens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -146,6 +147,14 @@ export default function App() {
           <Tab.Screen
             name="DoctorDetail"
             component={DoctorDetailScreen}
+            options={{
+              tabBarStyle: { display: "none" },
+              tabBarButton: () => null,
+            }}
+          />
+          <Tab.Screen
+            name="Booking"
+            component={BookingScreen}
             options={{
               tabBarStyle: { display: "none" },
               tabBarButton: () => null,

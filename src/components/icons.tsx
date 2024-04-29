@@ -76,3 +76,19 @@ export const OutLineLocation: React.FC<Iconprops> = ({
   size = 30,
   color = "hsla(215, 24%, 39%, 1)",
 }) => <EvilIcons name="location" size={size} color={color} />;
+export const PatientIcon: React.FC<Iconprops> = ({
+  size = 30,
+  color = "hsla(215, 24%, 39%, 1)",
+}) => <FontAwesome5 name="user-friends" size={size} color={color} />;
+export const Chat: React.FC<Iconprops> = ({
+  size = 30,
+  color = "hsla(215, 24%, 39%, 1)",
+}) => <Entypo name="chat" size={size} color={color} />;
+export const Clock: React.FC<Iconprops> = ({
+  size = 30,
+  color = "hsla(215, 24%, 39%, 1)",
+}) => <AntDesign name="clockcircle" size={size} color={color} />;
+export const Star: React.FC<Iconprops> = ({
+  size = 30,
+  color = "hsla(215, 24%, 39%, 1)",
+}) => <AntDesign name="star" size={size} color={color} />;

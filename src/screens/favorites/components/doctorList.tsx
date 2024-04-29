@@ -12,7 +12,7 @@ import { DefaultHeading } from "../../../components/headings";
 import { DefaultButton } from "../../../components/buttons";
 
 const DoctorList = () => {
-  const [isModalVisible, setModalVisible] = useState<boolean>(true);
+  const [isModalVisible, setModalVisible] = useState<boolean>(false);
   return (
     <ScrollVertical>
       <Modal

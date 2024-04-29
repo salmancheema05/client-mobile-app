@@ -16,7 +16,7 @@ const DefaultText: React.FC<TextProps> = ({
     return (
       <Text
         style={{
-          fontSize: 16,
+          fontSize: 14,
           fontWeight: "300",
           color: "hsla(220, 16%, 50%, 1)",
           ...styles,

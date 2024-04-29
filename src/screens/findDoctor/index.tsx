@@ -1,28 +1,18 @@
 import { View } from "react-native";
 import React from "react";
 import { DefaultSection, DefaultView, Header } from "../../components/Views";
-import { DefaultHeading } from "../../components/headings";
 import { DefaultText } from "../../components/texts";
-import { DefaultImage } from "../../components/images";
-import { ReadOnlyRating } from "../../components/rating";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
-import { DefaultTouchableOpacity } from "../../components/touchableOpacity";
-import {
-  LeftArrow,
-  OutLineHeart,
-  OutLineLocation,
-  Search,
-} from "../../components/icons";
+import { Search } from "../../components/icons";
 import { DefaultTextInput } from "../../components/textinputs";
 import {
   DefaultHorizontalScrolling,
   ScrollVertical,
 } from "../../components/Scrolling";
-import { Card } from "react-native-shadow-cards";
 import { DoctorProfileCard } from "../../components/cards";
 
 type NavigationType = NavigationProp<
@@ -108,6 +98,7 @@ const FindDoctorScreen = () => {
         </DefaultSection>
         <DefaultSection>
           <DoctorProfileCard
+            doctorDetail={() => navigation.navigate("DoctorDetail")}
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
@@ -117,6 +108,7 @@ const FindDoctorScreen = () => {
             source={require("../../images/doctorImage1.png")}
           />
           <DoctorProfileCard
+            doctorDetail={() => navigation.navigate("DoctorDetail")}
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
@@ -126,6 +118,7 @@ const FindDoctorScreen = () => {
             source={require("../../images/doctorImage1.png")}
           />
           <DoctorProfileCard
+            doctorDetail={() => navigation.navigate("DoctorDetail")}
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
@@ -135,6 +128,7 @@ const FindDoctorScreen = () => {
             source={require("../../images/doctorImage1.png")}
           />
           <DoctorProfileCard
+            doctorDetail={() => navigation.navigate("DoctorDetail")}
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"

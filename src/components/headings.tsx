@@ -17,7 +17,7 @@ const DefaultHeading: React.FC<TextProps> = ({ children, styles }) => {
   return (
     <Text
       style={{
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: "800",
         color: "hsla(220, 16%, 50%, 1)",
         ...styles,
@@ -45,7 +45,7 @@ const DefaultTitleWithLink: React.FC<titleProps> = ({
         style={{
           fontSize: 16,
           fontWeight: "900",
-          color: "hsla(212, 52%, 23%, 1)",
+          color: "hsla(220, 16%, 50%, 1)",
           ...styles,
         }}
       >
