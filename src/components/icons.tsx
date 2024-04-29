@@ -55,12 +55,14 @@ export const Clinic: React.FC<Iconprops> = ({ size = 25, color = "red" }) => (
 export const Doctor: React.FC<Iconprops> = ({ size = 25, color = "red" }) => (
   <Fontisto name="doctor" size={size} color={color} />
 );
-export const Email: React.FC<Iconprops> = ({ size = 20, color = "black" }) => (
-  <Fontisto name="email" size={size} color={color} />
-);
-export const UnLock: React.FC<Iconprops> = ({ size = 20, color = "black" }) => (
-  <AntDesign name="unlock" size={size} color={color} />
-);
+export const Email: React.FC<Iconprops> = ({
+  size = 20,
+  color = "hsla(210, 1%, 78%, 1)",
+}) => <Fontisto name="email" size={size} color={color} />;
+export const UnLock: React.FC<Iconprops> = ({
+  size = 20,
+  color = "hsla(210, 1%, 78%, 1)",
+}) => <AntDesign name="unlock" size={size} color={color} />;
 
 export const ThreeDotVertical: React.FC<Iconprops> = ({
   size = 20,

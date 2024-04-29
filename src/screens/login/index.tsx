@@ -10,6 +10,9 @@ import { DefaultButton } from "../../components/buttons";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { DefaultTextInput } from "../../components/textinputs";
 import { Email, UnLock } from "../../components/icons";
+import { logo } from "../../importAllImages";
+import { DefaultImage } from "../../components/images";
+import { DefaultHeading } from "../../components/headings";
 
 type NavigationType = NavigationProp<
   Record<string, object | undefined>,
@@ -22,66 +25,21 @@ type NavigationType = NavigationProp<
 const Login = () => {
   const navigation: NavigationType = useNavigation();
   return (
-    <DefaultView
-      styles={{
-        backgroundColor: "#009eff",
-        marginBottom: 0,
-        marginHorizontal: 0,
-      }}
-    >
-      <DefaultText
-        styles={{
-          marginTop: hp(10),
-          marginBottom: hp(5),
-          fontSize: 30,
-          marginHorizontal: wp(10),
-          color: "white",
-          fontWeight: "900",
-        }}
-      >
-        Login
-      </DefaultText>
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "white",
-          paddingHorizontal: wp(4),
-          borderTopLeftRadius: 70,
-          borderTopRightRadius: 70,
-        }}
-      >
-        <View style={{ marginTop: hp(20) }}>
-          <View style={{}}>
-            <DefaultTextInput
-              icon={<Email color="gray" />}
-              placeholder="Email"
-            />
-          </View>
-          <View>
-            <DefaultTextInput
-              icon={<UnLock color="gray" />}
-              placeholder="Password"
-            />
-          </View>
-          <DefaultButton
-            buttonKey="login"
-            handler={() => navigation.navigate("DoctorAdmin")}
-            styles={{ marginTop: hp(5) }}
-          />
-          <View style={{ marginTop: hp(5), marginHorizontal: wp(25) }}>
-            <View style={{ flexDirection: "row" }}>
-              <DefaultText styles={{ fontSize: 13, marginRight: wp(1) }}>
-                You don't have Account?
-              </DefaultText>
-              <Text
-                style={{ color: "#009eff", fontSize: 13 }}
-                onPress={() => navigation.navigate("Signup")}
-              >
-                Signup
-              </Text>
-            </View>
-          </View>
-        </View>
+    <DefaultView>
+      <View style={{ marginTop: hp(15), alignItems: "center" }}>
+        <DefaultImage source={logo} styles={{ width: 100, height: 100 }} />
+        <DefaultHeading styles={{ fontSize: 25, marginTop: hp(3) }}>
+          HealthPal
+        </DefaultHeading>
+      </View>
+      <View style={{ marginTop: hp(5) }}>
+        <DefaultTextInput icon={<Email />} placeholder="Email" />
+      </View>
+      <View style={{ marginTop: hp(3) }}>
+        <DefaultTextInput icon={<UnLock />} placeholder="Password" />
+      </View>
+      <View style={{ marginTop: hp(3) }}>
+        <DefaultButton buttonKey="SignIn" />
       </View>
     </DefaultView>
   );

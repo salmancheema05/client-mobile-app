@@ -6,3 +6,5 @@ export const categoryTransparentBg = require("./images/categoryellipse.png");
 export const sliderTransparentBg = require("./images/slidertransparentbg.png");
 export const sliderTransparentBg1 = require("./images/slidertransparentbg1.png");
 export const sliderDoctorImage1 = require("./images/doctorImage3.png");
+export const tick = require("./images/tick.png");
+export const logo = require("./images/logo.png");
