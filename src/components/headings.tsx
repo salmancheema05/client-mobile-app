@@ -6,6 +6,7 @@ import { DefaultText } from "./texts";
 interface TextProps {
   styles?: TextStyle;
   children?: React.ReactNode;
+  handler?: () => void;
 }
 interface titleProps {
   tag?: string;
@@ -13,7 +14,11 @@ interface titleProps {
   styles?: TextStyle;
   handler?: () => void;
 }
-const DefaultHeading: React.FC<TextProps> = ({ children, styles }) => {
+const DefaultHeading: React.FC<TextProps> = ({
+  children,
+  handler = null,
+  styles,
+}) => {
   return (
     <Text
       style={{
@@ -22,6 +27,7 @@ const DefaultHeading: React.FC<TextProps> = ({ children, styles }) => {
         color: "hsla(220, 16%, 50%, 1)",
         ...styles,
       }}
+      onPress={handler}
     >
       {children}
     </Text>

@@ -20,7 +20,7 @@ import { tick } from "../../importAllImages";
 import { DefaultImage } from "../../components/images";
 
 const BookingScreen = () => {
-  const [isModalVisible, setModalVisible] = useState<boolean>(true);
+  const [isModalVisible, setModalVisible] = useState<boolean>(false);
   const [selected, setSelected] = useState("");
   const currentDate = new Date();
   return (

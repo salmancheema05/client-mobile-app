@@ -59,6 +59,10 @@ export const Email: React.FC<Iconprops> = ({
   size = 20,
   color = "hsla(210, 1%, 78%, 1)",
 }) => <Fontisto name="email" size={size} color={color} />;
+export const User: React.FC<Iconprops> = ({
+  size = 20,
+  color = "hsla(210, 1%, 78%, 1)",
+}) => <AntDesign name="user" size={size} color={color} />;
 export const UnLock: React.FC<Iconprops> = ({
   size = 20,
   color = "hsla(210, 1%, 78%, 1)",

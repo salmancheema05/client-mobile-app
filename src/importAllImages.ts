@@ -8,3 +8,5 @@ export const sliderTransparentBg1 = require("./images/slidertransparentbg1.png")
 export const sliderDoctorImage1 = require("./images/doctorImage3.png");
 export const tick = require("./images/tick.png");
 export const logo = require("./images/logo.png");
+export const google = require("./images/google.png");
+export const facebook = require("./images/facebook.png");
