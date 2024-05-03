@@ -36,6 +36,8 @@ const DefaultGrid: React.FC<ViewProps> = ({ children, styles }) => {
       style={{
         flexDirection: "row",
         flexWrap: "wrap",
+        paddingHorizontal: wp(2),
+        paddingVertical: hp(2),
         ...styles,
       }}
     >

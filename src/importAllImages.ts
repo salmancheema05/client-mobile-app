@@ -10,3 +10,4 @@ export const tick = require("./images/tick.png");
 export const logo = require("./images/logo.png");
 export const google = require("./images/google.png");
 export const facebook = require("./images/facebook.png");
+export const userpic = require("./images/userpic.jpg");

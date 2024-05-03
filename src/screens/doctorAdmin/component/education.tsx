@@ -6,10 +6,12 @@ import {
 } from "react-native-responsive-screen";
 import { DefaultGrid } from "../../../components/Views";
 import { DefaultHeading } from "../../../components/headings";
+import { DefaultText } from "../../../components/texts";
+import { Card } from "react-native-shadow-cards";
 const Education = () => {
   return (
     <DefaultGrid>
-      <View
+      <Card
         style={{
           backgroundColor: "white",
           marginTop: hp(3),
@@ -20,19 +22,79 @@ const Education = () => {
           alignItems: "center",
         }}
       >
-        <DefaultHeading
-          tag="h6"
-          styles={{ color: "#009eff", marginBottom: hp(1) }}
-        >
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
           1971-2024
         </DefaultHeading>
-        <DefaultHeading tag="h5" styles={{ marginBottom: hp(1) }}>
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
           Degree Name
         </DefaultHeading>
-        <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
+        <DefaultText styles={{ marginBottom: hp(1) }}>
           Institute Name
+        </DefaultText>
+      </Card>
+      <Card
+        style={{
+          backgroundColor: "white",
+          marginTop: hp(3),
+          paddingHorizontal: wp(3),
+          paddingVertical: wp(5),
+          width: "45%",
+          marginRight: wp(4),
+          alignItems: "center",
+        }}
+      >
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
+          1971-2024
         </DefaultHeading>
-      </View>
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
+          Degree Name
+        </DefaultHeading>
+        <DefaultText styles={{ marginBottom: hp(1) }}>
+          Institute Name
+        </DefaultText>
+      </Card>
+      <Card
+        style={{
+          backgroundColor: "white",
+          marginTop: hp(3),
+          paddingHorizontal: wp(3),
+          paddingVertical: wp(5),
+          width: "45%",
+          marginRight: wp(4),
+          alignItems: "center",
+        }}
+      >
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
+          1971-2024
+        </DefaultHeading>
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
+          Degree Name
+        </DefaultHeading>
+        <DefaultText styles={{ marginBottom: hp(1) }}>
+          Institute Name
+        </DefaultText>
+      </Card>
+      <Card
+        style={{
+          backgroundColor: "white",
+          marginTop: hp(3),
+          paddingHorizontal: wp(3),
+          paddingVertical: wp(5),
+          width: "45%",
+          marginRight: wp(4),
+          alignItems: "center",
+        }}
+      >
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
+          1971-2024
+        </DefaultHeading>
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
+          Degree Name
+        </DefaultHeading>
+        <DefaultText styles={{ marginBottom: hp(1) }}>
+          Institute Name
+        </DefaultText>
+      </Card>
     </DefaultGrid>
   );
 };

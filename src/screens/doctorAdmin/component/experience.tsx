@@ -6,11 +6,12 @@ import {
 } from "react-native-responsive-screen";
 import { DefaultGrid } from "../../../components/Views";
 import { DefaultHeading } from "../../../components/headings";
-
+import { DefaultText } from "../../../components/texts";
+import { Card } from "react-native-shadow-cards";
 const Experience = () => {
   return (
     <DefaultGrid>
-      <View
+      <Card
         style={{
           backgroundColor: "white",
           marginTop: hp(3),
@@ -21,20 +22,17 @@ const Experience = () => {
           alignItems: "center",
         }}
       >
-        <DefaultHeading
-          tag="h6"
-          styles={{ color: "#009eff", marginBottom: hp(1) }}
-        >
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
           1971-2024
         </DefaultHeading>
-        <DefaultHeading tag="h5" styles={{ marginBottom: hp(1) }}>
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
           Position
         </DefaultHeading>
-        <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
+        <DefaultText styles={{ marginBottom: hp(1) }}>
           Hospital Name
-        </DefaultHeading>
-      </View>
-      <View
+        </DefaultText>
+      </Card>
+      <Card
         style={{
           backgroundColor: "white",
           marginTop: hp(3),
@@ -45,20 +43,17 @@ const Experience = () => {
           alignItems: "center",
         }}
       >
-        <DefaultHeading
-          tag="h6"
-          styles={{ color: "#009eff", marginBottom: hp(1) }}
-        >
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
           1971-2024
         </DefaultHeading>
-        <DefaultHeading tag="h5" styles={{ marginBottom: hp(1) }}>
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
           Position
         </DefaultHeading>
-        <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
+        <DefaultText styles={{ marginBottom: hp(1) }}>
           Hospital Name
-        </DefaultHeading>
-      </View>
-      <View
+        </DefaultText>
+      </Card>
+      <Card
         style={{
           backgroundColor: "white",
           marginTop: hp(3),
@@ -69,20 +64,17 @@ const Experience = () => {
           alignItems: "center",
         }}
       >
-        <DefaultHeading
-          tag="h6"
-          styles={{ color: "#009eff", marginBottom: hp(1) }}
-        >
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
           1971-2024
         </DefaultHeading>
-        <DefaultHeading tag="h5" styles={{ marginBottom: hp(1) }}>
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
           Position
         </DefaultHeading>
-        <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
+        <DefaultText styles={{ marginBottom: hp(1) }}>
           Hospital Name
-        </DefaultHeading>
-      </View>
-      <View
+        </DefaultText>
+      </Card>
+      <Card
         style={{
           backgroundColor: "white",
           marginTop: hp(3),
@@ -93,19 +85,16 @@ const Experience = () => {
           alignItems: "center",
         }}
       >
-        <DefaultHeading
-          tag="h6"
-          styles={{ color: "#009eff", marginBottom: hp(1) }}
-        >
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
           1971-2024
         </DefaultHeading>
-        <DefaultHeading tag="h5" styles={{ marginBottom: hp(1) }}>
+        <DefaultHeading styles={{ marginBottom: hp(1) }}>
           Position
         </DefaultHeading>
-        <DefaultHeading tag="h6" styles={{ marginBottom: hp(1) }}>
+        <DefaultText styles={{ marginBottom: hp(1) }}>
           Hospital Name
-        </DefaultHeading>
-      </View>
+        </DefaultText>
+      </Card>
     </DefaultGrid>
   );
 };

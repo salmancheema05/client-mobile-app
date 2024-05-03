@@ -70,7 +70,7 @@ export const UnLock: React.FC<Iconprops> = ({
 
 export const ThreeDotVertical: React.FC<Iconprops> = ({
   size = 20,
-  color = "white",
+  color = "hsla(215, 24%, 39%, 1)",
 }) => <Entypo name="dots-three-vertical" size={size} color={color} />;
 
 export const Bell: React.FC<Iconprops> = ({

@@ -1,14 +1,15 @@
 import { View, Text } from "react-native";
 import React from "react";
-import { DefaultView } from "../../components/Views";
+import { DefaultView, Header } from "../../components/Views";
 import { LeftArrow } from "../../components/icons";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { DefaultTouchableOpacity } from "../../components/touchableOpacity";
 import { DefaultHeading } from "../../components/headings";
+import { DefaultTextInput } from "../../components/textinputs";
 import {
-  DefaultTextInput,
-  DefaultSelectBox,
-} from "../../components/textinputs";
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import { DefaultButton } from "../../components/buttons";
 
 type NavigationType = NavigationProp<
@@ -21,44 +22,23 @@ type NavigationType = NavigationProp<
 const PatientSetting = () => {
   const navigation: NavigationType = useNavigation();
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "white",
-      }}
-    >
-      <DefaultView
-        styles={{
-          backgroundColor: "white",
-        }}
-      >
-        <View style={{ flexDirection: "row", marginTop: 30 }}>
-          <DefaultTouchableOpacity
-            handler={() => navigation.navigate("PatientAdmin")}
-            styles={{ marginRight: 10, marginTop: 2 }}
-          >
-            <LeftArrow color="black" size={20} />
-          </DefaultTouchableOpacity>
-          <DefaultHeading tag="h4">Profile Setting</DefaultHeading>
-        </View>
-        <View>
+    <DefaultView>
+      <Header title="Setting" />
+      <View style={{ marginTop: hp(10) }}>
+        <View style={{ marginBottom: hp(5) }}>
           <DefaultTextInput placeholder="Full Name" />
-          <DefaultTextInput placeholder="Email" />
-          <DefaultTextInput placeholder="Password" />
-          <DefaultTextInput placeholder="Blood Group" />
-          <DefaultSelectBox
-            items={[
-              { label: "Male", value: "male" },
-              { label: "Female", value: "female" },
-            ]}
-            placeholder="Gender"
-          />
-          <View style={{ padding: 10, paddingVertical: 20 }}>
-            <DefaultButton buttonKey="update" />
-          </View>
         </View>
-      </DefaultView>
-    </View>
+        <View style={{ marginBottom: hp(5) }}>
+          <DefaultTextInput placeholder="Email" />
+        </View>
+        <View style={{ marginBottom: hp(5) }}>
+          <DefaultTextInput placeholder="Change Password" />
+        </View>
+        <View style={{ marginBottom: hp(5) }}>
+          <DefaultTextInput placeholder="Confirm Password" />
+        </View>
+      </View>
+    </DefaultView>
   );
 };
 

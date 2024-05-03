@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { ImageBackground, View } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -8,14 +8,16 @@ import { DefaultHeading } from "../../components/headings";
 import { CircleImage } from "../../components/images";
 import { ThreeDotVertical } from "../../components/icons";
 import {
-  BoxWithShadow,
   DefaultGrid,
+  DefaultSection,
   DefaultView,
 } from "../../components/Views";
 import { DefaultText } from "../../components/texts";
-import { DoctorCard } from "../../components/cards";
 import { DefaultTouchableOpacity } from "../../components/touchableOpacity";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
+import { Card } from "react-native-shadow-cards";
+import { DoctorProfileCard } from "../../components/cards";
+import { ScrollVertical } from "../../components/Scrolling";
 
 type NavigationType = NavigationProp<
   Record<string, object | undefined>,
@@ -29,162 +31,165 @@ const PatientAdminScreen = () => {
   const [openDropDown, setOpenDropDown] = useState<boolean>(false);
   const navigation: NavigationType = useNavigation();
   return (
-    <>
-      {/* <View
-        style={{
-          backgroundColor: "#009eff",
-          width: "100%",
-          height: hp(10),
-          marginTop: hp(3),
-          flexDirection: "row",
-        }}
-      >
-        <View
-          style={{
-            width: wp(85),
-            height: "100%",
-            alignItems: "center",
-            flexDirection: "row",
-            paddingHorizontal: wp(5),
-          }}
-        >
-          <CircleImage
-            source={require("../../images/doctorimage2.jpg")}
-            styles={{
-              width: hp(7),
-              height: hp(7),
-              borderRadius: hp(100),
-              marginTop: 0,
-              marginRight: wp(3),
-            }}
-          />
-          <DefaultHeading tag="h4" styles={{ color: "white" }}>
-            Salman Akbar
-          </DefaultHeading>
-        </View>
-        <View
-          style={{
-            width: wp(15),
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <DefaultTouchableOpacity
-            handler={() => setOpenDropDown(!openDropDown)}
-          >
-            <ThreeDotVertical />
-          </DefaultTouchableOpacity>
-        </View>
-        <BoxWithShadow
+    <ScrollVertical>
+      {openDropDown ? (
+        <DefaultTouchableOpacity
           styles={{
-            backgroundColor: "white",
-            width: wp(30),
-            height: hp(12),
             position: "absolute",
-            right: 10,
-            marginTop: hp(8),
-            justifyContent: "center",
-            display: openDropDown ? "flex" : "none",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            zIndex: 1,
           }}
+          handler={() => setOpenDropDown(false)}
         >
-          <View
+          <Card
             style={{
+              backgroundColor: "white",
               width: wp(30),
+              height: hp(12),
+              position: "absolute",
+              right: 10,
+              marginTop: hp(12),
               justifyContent: "center",
-              alignItems: "center",
+              display: openDropDown ? "flex" : "none",
             }}
           >
-            <DefaultText
-              styles={{ marginVertical: wp(2) }}
-              handler={() => {
-                navigation.navigate("Setting");
-                setOpenDropDown(false);
+            <View
+              style={{
+                width: wp(30),
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              Setting
-            </DefaultText>
+              <DefaultText
+                styles={{ marginVertical: wp(2) }}
+                handler={() => {
+                  navigation.navigate("PatientSetting");
+                  setOpenDropDown(false);
+                }}
+              >
+                Setting
+              </DefaultText>
+            </View>
+            <View
+              style={{
+                width: wp(30),
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <DefaultText styles={{ marginVertical: wp(2) }}>
+                Logout
+              </DefaultText>
+            </View>
+          </Card>
+        </DefaultTouchableOpacity>
+      ) : null}
+
+      <DefaultView>
+        <View
+          style={{
+            width: "100%",
+            height: hp(10),
+            marginTop: hp(3),
+            flexDirection: "row",
+          }}
+        >
+          <View
+            style={{
+              width: "90%",
+              height: "100%",
+              alignItems: "center",
+              flexDirection: "row",
+            }}
+          >
+            <CircleImage
+              source={require("../../images/doctorImage2.jpg")}
+              styles={{
+                width: hp(7),
+                height: hp(7),
+                borderRadius: hp(100),
+                marginTop: 0,
+                marginRight: wp(3),
+              }}
+            />
+            <DefaultHeading>Salman Akbar</DefaultHeading>
           </View>
           <View
             style={{
-              width: wp(30),
+              width: wp(15),
+              alignItems: "center",
               justifyContent: "center",
-              alignItems: "center",
             }}
           >
-            <DefaultText styles={{ marginVertical: wp(2) }}>Logout</DefaultText>
+            <DefaultTouchableOpacity
+              handler={() => setOpenDropDown(!openDropDown)}
+            >
+              <ThreeDotVertical />
+            </DefaultTouchableOpacity>
           </View>
-        </BoxWithShadow>
-      </View>
-      <DefaultView>
-        <View style={{ marginVertical: hp(4) }}>
-          <DefaultHeading tag="h3" styles={{ color: "#009eff" }}>
-            My Booking
-          </DefaultHeading>
         </View>
-        <DefaultGrid styles={{ justifyContent: "space-evenly" }}>
-          <BoxWithShadow
-            styles={{
-              alignItems: "center",
-              padding: wp(5),
-              marginBottom: hp(0),
-              width: "50%",
-            }}
-          >
-            <DoctorCard
-              image={require("../../images/doctorimage2.jpg")}
-              name="Salman Akbar"
-              departmentName="Dermatologist"
-              rating="4.5 (3)"
+        <DefaultSection>
+          <View>
+            <DefaultHeading>My Bookings</DefaultHeading>
+          </View>
+          <DefaultSection>
+            <DoctorProfileCard
+              doctorDetail={() => navigation.navigate("DoctorDetail")}
+              name="David Patel"
+              departmentName="Cardiologist"
+              ClinicAddress="Cardiologist Center,USA"
+              totalViews={1800}
+              rating={4.5}
+              totalRating="4.5"
+              source={require("../../images/doctorImage1.png")}
             />
-          </BoxWithShadow>
-          <BoxWithShadow
-            styles={{
-              alignItems: "center",
-              padding: wp(5),
-              marginBottom: hp(0),
-              width: "50%",
-            }}
-          >
-            <DoctorCard
-              image={require("../../images/doctorimage2.jpg")}
-              name="Salman Akbar"
-              departmentName="Dermatologist"
-              rating="4.5 (3)"
+            <DoctorProfileCard
+              doctorDetail={() => navigation.navigate("DoctorDetail")}
+              name="David Patel"
+              departmentName="Cardiologist"
+              ClinicAddress="Cardiologist Center,USA"
+              totalViews={1800}
+              rating={4.5}
+              totalRating="4.5"
+              source={require("../../images/doctorImage1.png")}
             />
-          </BoxWithShadow>
-          <BoxWithShadow
-            styles={{
-              alignItems: "center",
-              padding: wp(5),
-              marginBottom: hp(0),
-              width: "50%",
-            }}
-          >
-            <DoctorCard
-              image={require("../../images/doctorimage2.jpg")}
-              name="Salman Akbar"
-              departmentName="Dermatologist"
-              rating="4.5 (3)"
+            <DoctorProfileCard
+              doctorDetail={() => navigation.navigate("DoctorDetail")}
+              name="David Patel"
+              departmentName="Cardiologist"
+              ClinicAddress="Cardiologist Center,USA"
+              totalViews={1800}
+              rating={4.5}
+              totalRating="4.5"
+              source={require("../../images/doctorImage1.png")}
             />
-          </BoxWithShadow>
-          <BoxWithShadow
-            styles={{
-              alignItems: "center",
-              padding: wp(5),
-              marginBottom: hp(0),
-              width: "50%",
-            }}
-          >
-            <DoctorCard
-              image={require("../../images/doctorimage2.jpg")}
-              name="Salman Akbar"
-              departmentName="Dermatologist"
-              rating="4.5 (3)"
+            <DoctorProfileCard
+              doctorDetail={() => navigation.navigate("DoctorDetail")}
+              name="David Patel"
+              departmentName="Cardiologist"
+              ClinicAddress="Cardiologist Center,USA"
+              totalViews={1800}
+              rating={4.5}
+              totalRating="4.5"
+              source={require("../../images/doctorImage1.png")}
             />
-          </BoxWithShadow>
-        </DefaultGrid>
-      </DefaultView> */}
-    </>
+            <DoctorProfileCard
+              doctorDetail={() => navigation.navigate("DoctorDetail")}
+              name="David Patel"
+              departmentName="Cardiologist"
+              ClinicAddress="Cardiologist Center,USA"
+              totalViews={1800}
+              rating={4.5}
+              totalRating="4.5"
+              source={require("../../images/doctorImage1.png")}
+            />
+          </DefaultSection>
+        </DefaultSection>
+      </DefaultView>
+    </ScrollVertical>
   );
 };
 

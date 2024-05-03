@@ -4,17 +4,19 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { DefaultSection } from "../../../components/Views";
+import { DefaultText } from "../../../components/texts";
+
 const About = () => {
   return (
-    <View
-      style={{
-        backgroundColor: "white",
+    <DefaultSection
+      styles={{
         marginTop: hp(3),
         paddingHorizontal: wp(3),
         paddingVertical: wp(5),
       }}
     >
-      <Text>
+      <DefaultText styles={{ textAlign: "justify" }}>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam
         nobis ab nesciunt expedita! Exercitationem sequi blanditiis nisi vero
         nostrum corporis nulla, officia culpa nesciunt odio, qui ut cumque
@@ -41,8 +43,8 @@ const About = () => {
         laboriosam nobis ab nesciunt expedita! Exercitationem sequi blanditiis
         nisi vero nostrum corporis nulla, officia culpa nesciunt odio, qui ut
         cumque impedit.
-      </Text>
-    </View>
+      </DefaultText>
+    </DefaultSection>
   );
 };
 

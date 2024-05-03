@@ -41,7 +41,10 @@ const Login = () => {
         <DefaultTextInput icon={<UnLock />} placeholder="Password" />
       </View>
       <View style={{ marginTop: hp(3) }}>
-        <DefaultButton buttonKey="SignIn" />
+        <DefaultButton
+          buttonKey="SignIn"
+          handler={() => navigation.navigate("DoctorAdmin")}
+        />
       </View>
       <View
         style={{

@@ -25,7 +25,7 @@ const DefaultButton: React.FC<ButtonProps> = ({
 }) => {
   const buttonMappings: ButtonMapping = {
     Remove: {
-      name: "Yes,Remove",
+      name: "Remove",
       style: {
         backgroundColor: "hsla(212, 52%, 23%, 1)",
         width: "50%",
