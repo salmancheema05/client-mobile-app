@@ -4,18 +4,19 @@ import { DefaultView, Header } from "../../components/Views";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import DoctorList from "./components/doctorList";
 import ClinicList from "./components/clinicList";
-
+import { useTheme } from "../../theme/context";
 const FavoritesScreen = () => {
   const Tab = createMaterialTopTabNavigator();
+  const theme = useTheme();
   return (
     <DefaultView>
       <Header title="Favorites" />
       <Tab.Navigator
         screenOptions={{
-          tabBarActiveTintColor: "hsla(212, 52%, 23%, 1)",
-          tabBarInactiveTintColor: "hsla(218, 11%, 69%, 1)",
-          tabBarStyle: { backgroundColor: "white" },
-          tabBarIndicatorStyle: { backgroundColor: "hsla(212, 52%, 23%, 1)" },
+          tabBarActiveTintColor: theme.primary.dark,
+          tabBarInactiveTintColor: theme.primary.light,
+          tabBarStyle: { backgroundColor: theme.primary.bg },
+          tabBarIndicatorStyle: { backgroundColor: theme.primary.dark },
           tabBarLabelStyle: { fontSize: 16, fontWeight: "bold" },
         }}
       >

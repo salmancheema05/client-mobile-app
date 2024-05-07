@@ -56,9 +56,7 @@ const BookingScreen = () => {
               marginTop: hp(5),
             }}
           >
-            <DefaultHeading styles={{ fontSize: 20 }}>
-              Congratulations!
-            </DefaultHeading>
+            <DefaultHeading>Congratulations!</DefaultHeading>
           </View>
           <View
             style={{
@@ -100,7 +98,7 @@ const BookingScreen = () => {
           </Card>
         </DefaultSection>
         <DefaultSection>
-          <DefaultHeading styles={{ fontSize: 20 }}>Select Hour</DefaultHeading>
+          <DefaultHeading>Select Hour</DefaultHeading>
 
           <DefaultGrid
             styles={{

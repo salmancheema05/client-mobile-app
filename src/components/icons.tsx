@@ -79,7 +79,7 @@ export const Bell: React.FC<Iconprops> = ({
 }) => <Fontisto name="bell-alt" size={size} color={color} />;
 
 export const OutLineLocation: React.FC<Iconprops> = ({
-  size = 30,
+  size = 25,
   color = "hsla(215, 24%, 39%, 1)",
 }) => <EvilIcons name="location" size={size} color={color} />;
 export const PatientIcon: React.FC<Iconprops> = ({

@@ -1,6 +1,9 @@
 import { View, Text } from "react-native";
 import React, { useState } from "react";
 import { Rating } from "react-native-ratings";
+import { DefaultText } from "./texts";
+import { useTheme } from "../theme/context";
+
 interface ReadOnlyRatingProps {
   starLenght?: number;
   starSize?: number;
@@ -31,11 +34,12 @@ const DefaultRating = () => {
 const ReadOnlyRating: React.FC<ReadOnlyRatingProps> = ({
   starLenght = 1,
   starSize = 20,
-  tintColor,
+  tintColor = null,
   userRating = null,
   viewRating,
   styles,
 }) => {
+  const theme = useTheme();
   return (
     <View style={{ flexDirection: "row" }}>
       <Rating
@@ -43,12 +47,10 @@ const ReadOnlyRating: React.FC<ReadOnlyRatingProps> = ({
         ratingCount={starLenght}
         imageSize={starSize}
         startingValue={userRating}
-        tintColor={tintColor}
-        style={{ paddingHorizontal: 0, ...styles }}
+        tintColor={tintColor === null ? theme.primary.bg : tintColor}
+        style={{ ...styles }}
       />
-      <Text style={{ paddingHorizontal: 0, color: "hsla(220, 16%, 50%, 1)x" }}>
-        {viewRating}
-      </Text>
+      <DefaultText>{viewRating}</DefaultText>
     </View>
   );
 };

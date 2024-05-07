@@ -2,6 +2,7 @@ import { TextStyle, Text, View } from "react-native";
 import React from "react";
 import { DefaultTouchableOpacity } from "./touchableOpacity";
 import { DefaultText } from "./texts";
+import { useTheme } from "../theme/context";
 
 interface TextProps {
   styles?: TextStyle;
@@ -19,11 +20,31 @@ const DefaultHeading: React.FC<TextProps> = ({
   handler = null,
   styles,
 }) => {
+  const theme = useTheme();
+  return (
+    <Text
+      style={{
+        fontSize: 20,
+        fontWeight: "800",
+        color: theme.primary.dark,
+        ...styles,
+      }}
+      onPress={handler}
+    >
+      {children}
+    </Text>
+  );
+};
+const SubHeading: React.FC<TextProps> = ({
+  children,
+  handler = null,
+  styles,
+}) => {
   return (
     <Text
       style={{
         fontSize: 16,
-        fontWeight: "800",
+        fontWeight: "900",
         color: "hsla(220, 16%, 50%, 1)",
         ...styles,
       }}
@@ -47,16 +68,7 @@ const DefaultTitleWithLink: React.FC<titleProps> = ({
         marginBottom: 10,
       }}
     >
-      <Text
-        style={{
-          fontSize: 16,
-          fontWeight: "900",
-          color: "hsla(220, 16%, 50%, 1)",
-          ...styles,
-        }}
-      >
-        {title}
-      </Text>
+      <SubHeading>{title}</SubHeading>
       <DefaultTouchableOpacity handler={handler}>
         <DefaultText>See All</DefaultText>
       </DefaultTouchableOpacity>
@@ -64,4 +76,4 @@ const DefaultTitleWithLink: React.FC<titleProps> = ({
   );
 };
 
-export { DefaultHeading, DefaultTitleWithLink };
+export { DefaultHeading, DefaultTitleWithLink, SubHeading };

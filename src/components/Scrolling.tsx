@@ -22,12 +22,12 @@ const DefaultHorizontalScrolling: React.FC<ScrollingProps> = ({
     </ScrollView>
   );
 };
-const ScrollVertical: React.FC<ScrollingProps> = ({ children }) => {
+const ScrollVertical: React.FC<ScrollingProps> = ({ children, styles }) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}
+        style={{ flex: 1, ...styles }}
       >
         {children}
       </ScrollView>

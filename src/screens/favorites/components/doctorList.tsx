@@ -10,9 +10,10 @@ import { ScrollVertical } from "../../../components/Scrolling";
 import Modal from "react-native-modal";
 import { DefaultHeading } from "../../../components/headings";
 import { DefaultButton } from "../../../components/buttons";
-
+import { useTheme } from "../../../theme/context";
 const DoctorList = () => {
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
+  const theme = useTheme();
   return (
     <ScrollVertical>
       <Modal
@@ -45,7 +46,7 @@ const DoctorList = () => {
               name="David Patel"
               departmentName="Cardiologist"
               ClinicAddress="Cardiologist Center,USA"
-              totalViews={1800}
+              fee={1800}
               rating={4.5}
               totalRating="4.5"
               source={require("../../../images/doctorImage1.png")}
@@ -65,7 +66,11 @@ const DoctorList = () => {
         </View>
       </Modal>
       <View
-        style={{ flex: 1, backgroundColor: "white", paddingHorizontal: 10 }}
+        style={{
+          flex: 1,
+          backgroundColor: theme.primary.bg,
+          paddingHorizontal: 10,
+        }}
       >
         <DefaultSection>
           <DoctorProfileCard
@@ -74,7 +79,7 @@ const DoctorList = () => {
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
-            totalViews={1800}
+            fee={1800}
             rating={4.5}
             totalRating="4.5"
             source={require("../../../images/doctorImage1.png")}
@@ -85,7 +90,7 @@ const DoctorList = () => {
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
-            totalViews={1800}
+            fee={1800}
             rating={4.5}
             totalRating="4.5"
             source={require("../../../images/doctorImage1.png")}
@@ -96,7 +101,7 @@ const DoctorList = () => {
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
-            totalViews={1800}
+            fee={1800}
             rating={4.5}
             totalRating="4.5"
             source={require("../../../images/doctorImage1.png")}
@@ -107,7 +112,7 @@ const DoctorList = () => {
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
-            totalViews={1800}
+            fee={1800}
             rating={4.5}
             totalRating="4.5"
             source={require("../../../images/doctorImage1.png")}
@@ -118,7 +123,7 @@ const DoctorList = () => {
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
-            totalViews={1800}
+            fee={1800}
             rating={4.5}
             totalRating="4.5"
             source={require("../../../images/doctorImage1.png")}

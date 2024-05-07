@@ -6,19 +6,18 @@ import {
   View,
 } from "react-native";
 import React from "react";
-
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { DefaultHeading } from "./headings";
+import { DefaultHeading, SubHeading } from "./headings";
 import { DefaultText } from "./texts";
 import { DefaultImage } from "./images";
 import { ReadOnlyRating } from "./rating";
 import { Card } from "react-native-shadow-cards";
 import { Heart, OutLineHeart, OutLineLocation } from "./icons";
 import { DefaultTouchableOpacity } from "./touchableOpacity";
-
+import { useTheme } from "../theme/context";
 interface ClinicCardProps {
   source: ImageSourcePropType;
   name: string;
@@ -26,7 +25,7 @@ interface ClinicCardProps {
   distance?: string;
   distanceTime?: string;
   rating: number;
-  totalViews: number;
+  totalViews?: number;
   styles?: object;
   handler?: () => void;
 }
@@ -34,6 +33,7 @@ interface DoctorCardProps extends ClinicCardProps {
   departmentName: string;
   totalRating: string;
   favoritesIcone?: boolean;
+  fee?: number;
   doctorDetail?: () => void;
 }
 export const ClinicCard: React.FC<ClinicCardProps> = ({
@@ -46,10 +46,13 @@ export const ClinicCard: React.FC<ClinicCardProps> = ({
   totalViews,
   styles,
 }) => {
+  const theme = useTheme();
   return (
     <Card
       style={{
-        backgroundColor: "white",
+        backgroundColor: theme.primary.bg,
+        shadowColor: theme.primary.shadowColor,
+        elevation: 10,
         width: wp(70),
         borderRadius: 20,
         marginRight: wp(10),
@@ -90,12 +93,12 @@ export const ClinicCard: React.FC<ClinicCardProps> = ({
           flexDirection: "row",
         }}
       >
-        <DefaultText styles={{ fontWeight: "600" }}>{rating}</DefaultText>
+        <DefaultText>{rating}</DefaultText>
         <ReadOnlyRating
           starLenght={5}
           userRating={rating}
           starSize={16}
-          styles={{ marginTop: hp(0.5) }}
+          styles={{ marginTop: hp(0.2), paddingHorizontal: wp(2) }}
         />
         <DefaultText>({totalViews} Reviews)</DefaultText>
       </View>
@@ -129,17 +132,21 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
   departmentName,
   ClinicAddress,
   rating,
-  totalViews,
+  fee,
   totalRating,
   source,
   handler,
   favoritesIcone = false,
   doctorDetail,
 }) => {
+  const theme = useTheme();
   return (
     <DefaultTouchableOpacity handler={doctorDetail}>
       <Card
         style={{
+          backgroundColor: theme.primary.bg,
+          shadowColor: theme.primary.shadowColor,
+          elevation: 10,
           width: "100%",
           height: hp(18),
           marginBottom: wp(5),
@@ -172,7 +179,7 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
             }}
           >
             <View>
-              <DefaultHeading>Dr.{name}</DefaultHeading>
+              <SubHeading>Dr.{name}</SubHeading>
             </View>
             <DefaultTouchableOpacity
               styles={{ paddingRight: wp(2), paddingTop: hp(0.5) }}
@@ -186,7 +193,7 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
             </DefaultTouchableOpacity>
           </View>
           <View style={{ marginTop: hp(1), paddingHorizontal: wp(1.4) }}>
-            <DefaultHeading>{departmentName}</DefaultHeading>
+            <SubHeading>{departmentName}</SubHeading>
           </View>
           <View
             style={{
@@ -219,7 +226,7 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
               />
             </View>
             <View style={{ paddingLeft: hp(1) }}>
-              <DefaultText>{totalViews} Reviews</DefaultText>
+              <DefaultText>{fee} Fee</DefaultText>
             </View>
           </View>
         </View>

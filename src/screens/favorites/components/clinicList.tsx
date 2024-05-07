@@ -2,16 +2,22 @@ import { View, Text } from "react-native";
 import React from "react";
 import { DefaultSection } from "../../../components/Views";
 import { ScrollVertical } from "../../../components/Scrolling";
-import { ClinicCard, DoctorProfileCard } from "../../../components/cards";
+import { ClinicCard } from "../../../components/cards";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { useTheme } from "../../../theme/context";
 const ClinicList = () => {
+  const theme = useTheme();
   return (
     <ScrollVertical>
       <View
-        style={{ flex: 1, backgroundColor: "white", paddingHorizontal: 10 }}
+        style={{
+          flex: 1,
+          backgroundColor: theme.primary.bg,
+          paddingHorizontal: 10,
+        }}
       >
         <DefaultSection>
           <ClinicCard

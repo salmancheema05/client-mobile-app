@@ -102,7 +102,7 @@ const FindDoctorScreen = () => {
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
-            totalViews={1800}
+            fee={1800}
             rating={4.5}
             totalRating="4.5"
             source={require("../../images/doctorImage1.png")}
@@ -112,7 +112,7 @@ const FindDoctorScreen = () => {
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
-            totalViews={1800}
+            fee={1800}
             rating={4.5}
             totalRating="4.5"
             source={require("../../images/doctorImage1.png")}
@@ -122,7 +122,7 @@ const FindDoctorScreen = () => {
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
-            totalViews={1800}
+            fee={1800}
             rating={4.5}
             totalRating="4.5"
             source={require("../../images/doctorImage1.png")}
@@ -132,7 +132,7 @@ const FindDoctorScreen = () => {
             name="David Patel"
             departmentName="Cardiologist"
             ClinicAddress="Cardiologist Center,USA"
-            totalViews={1800}
+            fee={1800}
             rating={4.5}
             totalRating="4.5"
             source={require("../../images/doctorImage1.png")}

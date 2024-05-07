@@ -1,6 +1,8 @@
 import { TextStyle, Text } from "react-native";
 import React from "react";
 import { DefaultTouchableOpacity } from "./touchableOpacity";
+import { useTheme } from "../theme/context";
+
 interface TextProps {
   styles?: TextStyle;
   handler?: () => void;
@@ -12,13 +14,14 @@ const DefaultText: React.FC<TextProps> = ({
   handler = null,
   styles,
 }) => {
+  const theme = useTheme();
   const renderText = () => {
     return (
       <Text
         style={{
           fontSize: 14,
           fontWeight: "300",
-          color: "hsla(220, 16%, 50%, 1)",
+          color: theme.primary.light,
           ...styles,
         }}
       >

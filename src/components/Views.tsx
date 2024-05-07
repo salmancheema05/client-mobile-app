@@ -7,6 +7,7 @@ import {
 
 import { DefaultHeading } from "./headings";
 import { LeftArrow } from "./icons";
+import { useTheme } from "../theme/context";
 
 interface ViewProps {
   styles?: ViewStyle;
@@ -15,11 +16,12 @@ interface ViewProps {
 }
 
 const DefaultView: React.FC<ViewProps> = ({ children, styles }) => {
+  const theme = useTheme();
   return (
     <View
       style={{
         flex: 1,
-        backgroundColor: "white",
+        backgroundColor: theme.primary.bg,
         paddingHorizontal: wp(6),
         marginTop: hp(3),
         paddingBottom: hp(3),

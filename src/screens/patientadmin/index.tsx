@@ -18,6 +18,7 @@ import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { Card } from "react-native-shadow-cards";
 import { DoctorProfileCard } from "../../components/cards";
 import { ScrollVertical } from "../../components/Scrolling";
+import { useTheme } from "../../theme/context";
 
 type NavigationType = NavigationProp<
   Record<string, object | undefined>,
@@ -30,6 +31,7 @@ type NavigationType = NavigationProp<
 const PatientAdminScreen = () => {
   const [openDropDown, setOpenDropDown] = useState<boolean>(false);
   const navigation: NavigationType = useNavigation();
+  const theme = useTheme();
   return (
     <ScrollVertical>
       {openDropDown ? (
@@ -46,7 +48,9 @@ const PatientAdminScreen = () => {
         >
           <Card
             style={{
-              backgroundColor: "white",
+              backgroundColor: theme.primary.bg,
+              shadowColor: theme.primary.shadowColor,
+              elevation: 10,
               width: wp(30),
               height: hp(12),
               position: "absolute",
@@ -141,7 +145,7 @@ const PatientAdminScreen = () => {
               name="David Patel"
               departmentName="Cardiologist"
               ClinicAddress="Cardiologist Center,USA"
-              totalViews={1800}
+              fee={1800}
               rating={4.5}
               totalRating="4.5"
               source={require("../../images/doctorImage1.png")}
@@ -151,7 +155,7 @@ const PatientAdminScreen = () => {
               name="David Patel"
               departmentName="Cardiologist"
               ClinicAddress="Cardiologist Center,USA"
-              totalViews={1800}
+              fee={1800}
               rating={4.5}
               totalRating="4.5"
               source={require("../../images/doctorImage1.png")}
@@ -161,7 +165,7 @@ const PatientAdminScreen = () => {
               name="David Patel"
               departmentName="Cardiologist"
               ClinicAddress="Cardiologist Center,USA"
-              totalViews={1800}
+              fee={1800}
               rating={4.5}
               totalRating="4.5"
               source={require("../../images/doctorImage1.png")}
@@ -171,7 +175,7 @@ const PatientAdminScreen = () => {
               name="David Patel"
               departmentName="Cardiologist"
               ClinicAddress="Cardiologist Center,USA"
-              totalViews={1800}
+              fee={1800}
               rating={4.5}
               totalRating="4.5"
               source={require("../../images/doctorImage1.png")}
@@ -181,7 +185,7 @@ const PatientAdminScreen = () => {
               name="David Patel"
               departmentName="Cardiologist"
               ClinicAddress="Cardiologist Center,USA"
-              totalViews={1800}
+              fee={1800}
               rating={4.5}
               totalRating="4.5"
               source={require("../../images/doctorImage1.png")}
