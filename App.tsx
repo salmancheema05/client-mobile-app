@@ -1,13 +1,12 @@
-import { StatusBar } from "expo-status-bar";
 import { View } from "react-native";
 import Navigation from "./src/navigation";
-import { ThemeProvider } from "./src/theme/context";
+import { ThemeProvider, useTheme } from "./src/theme/context";
 
 export default function App() {
+  const theme = useTheme();
   return (
     <ThemeProvider>
       <View style={{ flex: 1 }}>
-        <StatusBar backgroundColor="white" />
         <Navigation />
       </View>
     </ThemeProvider>

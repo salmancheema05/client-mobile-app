@@ -18,7 +18,7 @@ import { ReadOnlyRating } from "../../components/rating";
 import { DefaultButton } from "../../components/buttons";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { ScrollVertical } from "../../components/Scrolling";
-
+import { useTheme } from "../../theme/context";
 type NavigationType = NavigationProp<
   Record<string, object | undefined>,
   string,
@@ -29,6 +29,7 @@ type NavigationType = NavigationProp<
 
 const DoctorDetailScreen = () => {
   const navigation: NavigationType = useNavigation();
+  const theme = useTheme();
   return (
     <>
       <DefaultView>
@@ -52,7 +53,7 @@ const DoctorDetailScreen = () => {
               <View>
                 <View
                   style={{
-                    backgroundColor: "hsla(220, 1%, 96%, 1)",
+                    backgroundColor: theme.primary.circleBg,
                     width: wp(16),
                     height: wp(16),
                     borderRadius: 100,
@@ -60,7 +61,7 @@ const DoctorDetailScreen = () => {
                     alignItems: "center",
                   }}
                 >
-                  <PatientIcon />
+                  <PatientIcon color={theme.primary.iconColor} />
                 </View>
                 <View
                   style={{
@@ -76,7 +77,7 @@ const DoctorDetailScreen = () => {
               <View>
                 <View
                   style={{
-                    backgroundColor: "hsla(220, 1%, 96%, 1)",
+                    backgroundColor: theme.primary.circleBg,
                     width: wp(16),
                     height: wp(16),
                     borderRadius: 100,
@@ -84,7 +85,7 @@ const DoctorDetailScreen = () => {
                     alignItems: "center",
                   }}
                 >
-                  <Clock />
+                  <Clock color={theme.primary.iconColor} />
                 </View>
                 <View
                   style={{
@@ -100,7 +101,7 @@ const DoctorDetailScreen = () => {
               <View>
                 <View
                   style={{
-                    backgroundColor: "hsla(220, 1%, 96%, 1)",
+                    backgroundColor: theme.primary.circleBg,
                     width: wp(16),
                     height: wp(16),
                     borderRadius: 100,
@@ -108,7 +109,7 @@ const DoctorDetailScreen = () => {
                     alignItems: "center",
                   }}
                 >
-                  <Star />
+                  <Star color={theme.primary.iconColor} />
                 </View>
                 <View
                   style={{
@@ -124,7 +125,7 @@ const DoctorDetailScreen = () => {
               <View>
                 <View
                   style={{
-                    backgroundColor: "hsla(220, 1%, 96%, 1)",
+                    backgroundColor: theme.primary.circleBg,
                     width: wp(16),
                     height: wp(16),
                     borderRadius: 100,
@@ -132,7 +133,7 @@ const DoctorDetailScreen = () => {
                     alignItems: "center",
                   }}
                 >
-                  <Chat />
+                  <Chat color={theme.primary.iconColor} />
                 </View>
                 <View
                   style={{
@@ -228,7 +229,7 @@ const DoctorDetailScreen = () => {
           marginTop: hp(4),
           paddingHorizontal: wp(3),
           paddingVertical: hp(1),
-          backgroundColor: "white",
+          backgroundColor: theme.primary.bg,
           bottom: 0,
           left: 0,
           right: 0,

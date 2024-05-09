@@ -106,6 +106,7 @@ export const ClinicCard: React.FC<ClinicCardProps> = ({
         style={{
           marginVertical: hp(3),
           borderTopWidth: 0.5,
+          borderColor: theme.primary.dark,
           marginHorizontal: wp(5),
         }}
       >
@@ -188,7 +189,7 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
               {favoritesIcone == false ? (
                 <OutLineHeart size={20} />
               ) : (
-                <Heart size={20} />
+                <Heart size={20} color={theme.primary.iconColor} />
               )}
             </DefaultTouchableOpacity>
           </View>

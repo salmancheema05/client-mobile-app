@@ -40,12 +40,13 @@ const SubHeading: React.FC<TextProps> = ({
   handler = null,
   styles,
 }) => {
+  const theme = useTheme();
   return (
     <Text
       style={{
         fontSize: 16,
         fontWeight: "900",
-        color: "hsla(220, 16%, 50%, 1)",
+        color: theme.primary.dark,
         ...styles,
       }}
       onPress={handler}

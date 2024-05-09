@@ -18,11 +18,12 @@ import { DefaultButton } from "../../components/buttons";
 import Modal from "react-native-modal";
 import { tick } from "../../importAllImages";
 import { DefaultImage } from "../../components/images";
-
+import { useTheme } from "../../theme/context";
 const BookingScreen = () => {
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
   const [selected, setSelected] = useState("");
   const currentDate = new Date();
+  const theme = useTheme();
   return (
     <>
       <Modal
@@ -32,7 +33,7 @@ const BookingScreen = () => {
       >
         <View
           style={{
-            backgroundColor: "white",
+            backgroundColor: theme.primary.bg,
             height: hp(70),
             borderRadius: 70,
             alignItems: "center",
@@ -43,7 +44,7 @@ const BookingScreen = () => {
               width: wp(40),
               height: wp(40),
               borderRadius: 100,
-              backgroundColor: "hsla(163, 21%, 81%, 1)",
+              backgroundColor: theme.primary.circleBg,
               marginTop: hp(5),
               justifyContent: "center",
               alignItems: "center",
@@ -110,7 +111,7 @@ const BookingScreen = () => {
               style={{
                 width: "30%",
                 height: hp(4),
-                backgroundColor: "hsla(210, 1%, 98%, 1)",
+                backgroundColor: theme.primary.circleBg,
                 borderRadius: 10,
                 justifyContent: "center",
                 alignItems: "center",
@@ -123,7 +124,7 @@ const BookingScreen = () => {
               style={{
                 width: "30%",
                 height: hp(4),
-                backgroundColor: "hsla(210, 1%, 98%, 1)",
+                backgroundColor: theme.primary.circleBg,
                 borderRadius: 10,
                 justifyContent: "center",
                 alignItems: "center",
@@ -136,7 +137,7 @@ const BookingScreen = () => {
               style={{
                 width: "30%",
                 height: hp(4),
-                backgroundColor: "hsla(210, 1%, 98%, 1)",
+                backgroundColor: theme.primary.circleBg,
                 borderRadius: 10,
                 justifyContent: "center",
                 alignItems: "center",
@@ -149,7 +150,7 @@ const BookingScreen = () => {
               style={{
                 width: "30%",
                 height: hp(4),
-                backgroundColor: "hsla(210, 1%, 98%, 1)",
+                backgroundColor: theme.primary.circleBg,
                 borderRadius: 10,
                 justifyContent: "center",
                 alignItems: "center",
@@ -162,7 +163,7 @@ const BookingScreen = () => {
               style={{
                 width: "30%",
                 height: hp(4),
-                backgroundColor: "hsla(210, 1%, 98%, 1)",
+                backgroundColor: theme.primary.circleBg,
                 borderRadius: 10,
                 justifyContent: "center",
                 alignItems: "center",

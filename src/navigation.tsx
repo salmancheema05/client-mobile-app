@@ -1,4 +1,5 @@
 import React from "react";
+import { StatusBar } from "expo-status-bar";
 import { View } from "react-native";
 import {
   HomeScreen,
@@ -18,15 +19,19 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home, Login, Heart, Search } from "./components/icons";
 import { userpic } from "./importAllImages";
 import { CircleImage } from "./components/images";
+import { useTheme } from "./theme/context";
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
+  const theme = useTheme();
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor={theme.primary.bg} />
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
           tabBarShowLabel: false,
+          tabBarStyle: { backgroundColor: theme.primary.bg },
         }}
       >
         <Tab.Screen
@@ -36,7 +41,7 @@ const Navigation = () => {
             tabBarIcon: ({ focused }) => (
               <View
                 style={{
-                  backgroundColor: focused ? "hsla(220, 1%, 96%, 1)" : null,
+                  backgroundColor: focused ? theme.primary.circleBg : null,
                   width: 35,
                   height: 35,
                   borderRadius: 100,
@@ -45,7 +50,7 @@ const Navigation = () => {
                 }}
               >
                 <Home
-                  color={focused ? "hsla(220, 16%, 50%, 1)" : "#a9aeb9"}
+                  color={focused ? theme.primary.dark : theme.primary.iconColor}
                   size={25}
                 />
               </View>
@@ -59,7 +64,7 @@ const Navigation = () => {
             tabBarIcon: ({ focused }) => (
               <View
                 style={{
-                  backgroundColor: focused ? "hsla(220, 1%, 96%, 1)" : null,
+                  backgroundColor: focused ? theme.primary.circleBg : null,
                   width: 35,
                   height: 35,
                   borderRadius: 100,
@@ -68,7 +73,7 @@ const Navigation = () => {
                 }}
               >
                 <Heart
-                  color={focused ? "hsla(220, 16%, 50%, 1)" : "#a9aeb9"}
+                  color={focused ? theme.primary.dark : theme.primary.iconColor}
                   size={25}
                 />
               </View>
@@ -82,7 +87,7 @@ const Navigation = () => {
             tabBarIcon: ({ focused }) => (
               <View
                 style={{
-                  backgroundColor: focused ? "hsla(220, 1%, 96%, 1)" : null,
+                  backgroundColor: focused ? theme.primary.circleBg : null,
                   width: 35,
                   height: 35,
                   borderRadius: 100,
@@ -91,7 +96,7 @@ const Navigation = () => {
                 }}
               >
                 <Search
-                  color={focused ? "hsla(220, 16%, 50%, 1)" : "#a9aeb9"}
+                  color={focused ? theme.primary.dark : theme.primary.iconColor}
                   size={25}
                 />
               </View>
@@ -106,7 +111,7 @@ const Navigation = () => {
             tabBarIcon: ({ focused }) => (
               <View
                 style={{
-                  backgroundColor: focused ? "hsla(220, 1%, 96%, 1)" : null,
+                  backgroundColor: focused ? theme.primary.circleBg : null,
                   width: 35,
                   height: 35,
                   borderRadius: 100,
@@ -131,7 +136,7 @@ const Navigation = () => {
             tabBarIcon: ({ focused }) => (
               <View
                 style={{
-                  backgroundColor: focused ? "hsla(220, 1%, 96%, 1)" : null,
+                  backgroundColor: focused ? theme.primary.circleBg : null,
                   width: 35,
                   height: 35,
                   borderRadius: 100,

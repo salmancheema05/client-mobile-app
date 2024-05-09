@@ -23,7 +23,7 @@ const DoctorList = () => {
       >
         <View
           style={{
-            backgroundColor: "white",
+            backgroundColor: theme.primary.bg,
             height: hp(40),
             borderTopLeftRadius: 50,
             borderTopRightRadius: 50,

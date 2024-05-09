@@ -1,24 +1,15 @@
-import React, { createContext, useContext, ReactNode } from "react";
-
-interface Theme {
-  primary: {
-    dark: string;
-    light: string;
-    bg: string;
-    shadowColor: string;
-    // Add more color definitions as needed
-  };
-}
-
-const defaultTheme: Theme = {
-  primary: {
-    dark: "hsla(220, 16%, 50%, 1)",
-    light: "#808080",
-    bg: "white",
-    shadowColor: "gray",
-  },
-};
-const ThemeContext = createContext<Theme>(defaultTheme);
+import React, {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from "react";
+import { lightTheme } from "./lightTheme";
+import { ThemeProps } from "./interface";
+import { Appearance, ColorSchemeName } from "react-native";
+import { darkTheme } from "./darkTheme";
+const ThemeContext = createContext<ThemeProps>(lightTheme);
 
 export const useTheme = () => useContext(ThemeContext);
 
@@ -27,9 +18,22 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+  const [systemTheme, setSystemTheme] = useState<ColorSchemeName>(
+    Appearance.getColorScheme()
+  );
+  const [theme, setTheme] = useState(
+    systemTheme === "dark" ? darkTheme : lightTheme
+  );
+  useEffect(() => {
+    const subscription = Appearance.addChangeListener(({ colorScheme }) => {
+      setSystemTheme(colorScheme);
+    });
+    return () => subscription.remove();
+  }, []);
+  useEffect(() => {
+    setTheme(systemTheme === "dark" ? darkTheme : lightTheme);
+  }, [systemTheme]);
   return (
-    <ThemeContext.Provider value={defaultTheme}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
   );
 };

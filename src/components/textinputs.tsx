@@ -6,6 +6,7 @@ import {
 } from "react-native-responsive-screen";
 
 import DropDownPicker, { ItemType } from "react-native-dropdown-picker";
+import { useTheme } from "../theme/context";
 
 interface InputProps extends TextInputProps {
   icon?: React.ReactNode;
@@ -25,10 +26,11 @@ const DefaultTextInput: React.FC<InputProps> = ({
   styles,
   ...rest
 }) => {
+  const theme = useTheme();
   return (
     <View
       style={{
-        backgroundColor: "hsla(220, 1%, 96%, 1)",
+        backgroundColor: theme.primary.circleBg,
         paddingHorizontal: wp(3),
         paddingVertical: hp(2),
         borderRadius: 10,

@@ -9,8 +9,10 @@ import { DefaultHeading } from "../../../components/headings";
 import { Location, Bell, Search } from "../../../components/icons";
 import { DefaultSection } from "../../../components/Views";
 import { DefaultTextInput } from "../../../components/textinputs";
+import { useTheme } from "../../../theme/context";
 
 const Header = () => {
+  const theme = useTheme();
   return (
     <>
       <View
@@ -40,7 +42,7 @@ const Header = () => {
             }}
           >
             <View>
-              <Location />
+              <Location color={theme.primary.iconColor} />
             </View>
             <View>
               <DefaultHeading>Seattle,USA</DefaultHeading>
@@ -57,7 +59,7 @@ const Header = () => {
         >
           <View
             style={{
-              backgroundColor: "hsla(220, 1%, 96%, 1)",
+              backgroundColor: theme.primary.circleBg,
               width: wp(10),
               height: wp(10),
               borderRadius: 100,
@@ -65,13 +67,13 @@ const Header = () => {
               alignItems: "center",
             }}
           >
-            <Bell />
+            <Bell color={theme.primary.iconColor} />
           </View>
         </View>
       </View>
       <DefaultSection>
         <DefaultTextInput
-          icon={<Search color="hsla(218, 11%, 69%, 1)" size={20} />}
+          icon={<Search color={theme.primary.iconColor} size={20} />}
           placeholder="Search Doctor"
         />
       </DefaultSection>
