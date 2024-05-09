@@ -15,7 +15,6 @@ import {
 import { DefaultText } from "../../components/texts";
 import { DefaultTouchableOpacity } from "../../components/touchableOpacity";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
-import { Card } from "react-native-shadow-cards";
 import { DoctorProfileCard } from "../../components/cards";
 import { ScrollVertical } from "../../components/Scrolling";
 import { useTheme } from "../../theme/context";
@@ -46,11 +45,11 @@ const PatientAdminScreen = () => {
           }}
           handler={() => setOpenDropDown(false)}
         >
-          <Card
+          <View
             style={{
               backgroundColor: theme.primary.bg,
               shadowColor: theme.primary.shadowColor,
-              elevation: 10,
+              elevation: 3,
               width: wp(30),
               height: hp(12),
               position: "absolute",
@@ -88,7 +87,7 @@ const PatientAdminScreen = () => {
                 Logout
               </DefaultText>
             </View>
-          </Card>
+          </View>
         </DefaultTouchableOpacity>
       ) : null}
 

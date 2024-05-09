@@ -16,10 +16,12 @@ import Experience from "./component/experience";
 import Education from "./component/education";
 import { ThreeDotVertical } from "../../components/icons";
 import { DoctorProfileCard } from "../../components/cards";
+import { useTheme } from "../../theme/context";
 
 const DoctorAdminScreen = () => {
   const [openDropDown, setOpenDropDown] = useState<boolean>(false);
   const [selectTab, setSelectTab] = useState<number>(0);
+  const theme = useTheme();
   return (
     <DefaultView>
       <Header title="Dr. David Patel " />
@@ -39,6 +41,7 @@ const DoctorAdminScreen = () => {
           flexDirection: "row",
           justifyContent: "space-between",
           borderBottomWidth: 0.5,
+          borderColor: theme.primary.borderColor,
         }}
       >
         <DefaultTouchableOpacity

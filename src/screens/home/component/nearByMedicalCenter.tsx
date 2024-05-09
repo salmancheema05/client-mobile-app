@@ -15,16 +15,7 @@ const NearByMedicalCenter = () => {
           ClinicAddress="123 Oak Street,CA 98765"
           distance="2.5 km"
           distanceTime="45 min"
-          rating={5.0}
-          totalViews={58}
-        />
-        <ClinicCard
-          source={require("../../../images/centerImage1.png")}
-          name="Sunrise Health Clinic"
-          ClinicAddress="123 Oak Street,CA 98765"
-          distance="2.5 km"
-          distanceTime="45 min"
-          rating={5.0}
+          rating={4.5}
           totalViews={58}
         />
         <ClinicCard

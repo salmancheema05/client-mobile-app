@@ -5,15 +5,19 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { DefaultGrid } from "../../../components/Views";
-import { DefaultHeading } from "../../../components/headings";
+import { DefaultHeading, SubHeading } from "../../../components/headings";
 import { DefaultText } from "../../../components/texts";
-import { Card } from "react-native-shadow-cards";
+import { useTheme } from "../../../theme/context";
+
 const Experience = () => {
+  const theme = useTheme();
   return (
     <DefaultGrid>
-      <Card
+      <View
         style={{
-          backgroundColor: "white",
+          backgroundColor: theme.primary.bg,
+          shadowColor: theme.primary.shadowColor,
+          elevation: 3,
           marginTop: hp(3),
           paddingHorizontal: wp(3),
           paddingVertical: wp(5),
@@ -25,16 +29,16 @@ const Experience = () => {
         <DefaultHeading styles={{ marginBottom: hp(1) }}>
           1971-2024
         </DefaultHeading>
-        <DefaultHeading styles={{ marginBottom: hp(1) }}>
-          Position
-        </DefaultHeading>
+        <SubHeading styles={{ marginBottom: hp(1) }}>Position</SubHeading>
         <DefaultText styles={{ marginBottom: hp(1) }}>
           Hospital Name
         </DefaultText>
-      </Card>
-      <Card
+      </View>
+      <View
         style={{
-          backgroundColor: "white",
+          backgroundColor: theme.primary.bg,
+          shadowColor: theme.primary.shadowColor,
+          elevation: 3,
           marginTop: hp(3),
           paddingHorizontal: wp(3),
           paddingVertical: wp(5),
@@ -46,16 +50,16 @@ const Experience = () => {
         <DefaultHeading styles={{ marginBottom: hp(1) }}>
           1971-2024
         </DefaultHeading>
-        <DefaultHeading styles={{ marginBottom: hp(1) }}>
-          Position
-        </DefaultHeading>
+        <SubHeading styles={{ marginBottom: hp(1) }}>Position</SubHeading>
         <DefaultText styles={{ marginBottom: hp(1) }}>
           Hospital Name
         </DefaultText>
-      </Card>
-      <Card
+      </View>
+      <View
         style={{
-          backgroundColor: "white",
+          backgroundColor: theme.primary.bg,
+          shadowColor: theme.primary.shadowColor,
+          elevation: 3,
           marginTop: hp(3),
           paddingHorizontal: wp(3),
           paddingVertical: wp(5),
@@ -67,16 +71,16 @@ const Experience = () => {
         <DefaultHeading styles={{ marginBottom: hp(1) }}>
           1971-2024
         </DefaultHeading>
-        <DefaultHeading styles={{ marginBottom: hp(1) }}>
-          Position
-        </DefaultHeading>
+        <SubHeading styles={{ marginBottom: hp(1) }}>Position</SubHeading>
         <DefaultText styles={{ marginBottom: hp(1) }}>
           Hospital Name
         </DefaultText>
-      </Card>
-      <Card
+      </View>
+      <View
         style={{
-          backgroundColor: "white",
+          backgroundColor: theme.primary.bg,
+          shadowColor: theme.primary.shadowColor,
+          elevation: 3,
           marginTop: hp(3),
           paddingHorizontal: wp(3),
           paddingVertical: wp(5),
@@ -88,13 +92,11 @@ const Experience = () => {
         <DefaultHeading styles={{ marginBottom: hp(1) }}>
           1971-2024
         </DefaultHeading>
-        <DefaultHeading styles={{ marginBottom: hp(1) }}>
-          Position
-        </DefaultHeading>
+        <SubHeading styles={{ marginBottom: hp(1) }}>Position</SubHeading>
         <DefaultText styles={{ marginBottom: hp(1) }}>
           Hospital Name
         </DefaultText>
-      </Card>
+      </View>
     </DefaultGrid>
   );
 };

@@ -7,7 +7,6 @@ import {
   Header,
 } from "../../components/Views";
 import { Calendar } from "react-native-calendars";
-import { Card } from "react-native-shadow-cards";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -82,7 +81,9 @@ const BookingScreen = () => {
       <DefaultView>
         <Header title="Booking Appointment" />
         <DefaultSection>
-          <Card>
+          <View
+            style={{ shadowColor: theme.primary.shadowColor, elevation: 5 }}
+          >
             <Calendar
               minDate={currentDate.toISOString().split("T")[0]}
               onDayPress={(day) => {
@@ -96,7 +97,7 @@ const BookingScreen = () => {
                 },
               }}
             />
-          </Card>
+          </View>
         </DefaultSection>
         <DefaultSection>
           <DefaultHeading>Select Hour</DefaultHeading>

@@ -4,19 +4,20 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { DefaultTouchableOpacity } from "../../../components/touchableOpacity";
 import { DefaultHeading } from "../../../components/headings";
 import { DefaultText } from "../../../components/texts";
 import { DefaultImage } from "../../../components/images";
-import { Card } from "react-native-shadow-cards";
 import { DefaultSection } from "../../../components/Views";
-
+import { useTheme } from "../../../theme/context";
 const Appointments = () => {
+  const theme = useTheme();
   return (
     <DefaultSection>
-      <Card
+      <View
         style={{
-          backgroundColor: "white",
+          backgroundColor: theme.primary.bg,
+          shadowColor: theme.primary.shadowColor,
+          elevation: 3,
           width: "96%",
           height: hp(16),
           marginBottom: hp(2),
@@ -65,7 +66,7 @@ const Appointments = () => {
             </DefaultText>
           </View>
         </View>
-      </Card>
+      </View>
     </DefaultSection>
   );
 };

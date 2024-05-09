@@ -125,7 +125,7 @@ const Navigation = () => {
                 />
               </View>
             ),
-            //   tabBarButton: () => null,
+            tabBarButton: () => null,
           }}
         />
         <Tab.Screen
@@ -150,7 +150,7 @@ const Navigation = () => {
                 />
               </View>
             ),
-            tabBarButton: () => null,
+            // tabBarButton: () => null,
           }}
         />
         <Tab.Screen

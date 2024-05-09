@@ -62,6 +62,7 @@ const DefaultSection: React.FC<ViewProps> = ({ children, styles }) => {
 };
 
 const Header: React.FC<ViewProps> = ({ title, styles }) => {
+  const theme = useTheme();
   return (
     <View style={{ height: hp(6), flexDirection: "row" }}>
       <View
@@ -71,7 +72,7 @@ const Header: React.FC<ViewProps> = ({ title, styles }) => {
           justifyContent: "center",
         }}
       >
-        <LeftArrow />
+        <LeftArrow color={theme.primary.iconColor} />
       </View>
       <View
         style={{

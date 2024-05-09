@@ -7,5 +7,6 @@ export const darkTheme: ThemeProps = {
     shadowColor: "#E5DCD9",
     circleBg: "#463E3E",
     iconColor: "#a9aeb9",
+    borderColor: "white",
   },
 };

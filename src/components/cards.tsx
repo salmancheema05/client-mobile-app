@@ -1,10 +1,4 @@
-import {
-  TextStyle,
-  ImageStyle,
-  StyleProp,
-  ImageSourcePropType,
-  View,
-} from "react-native";
+import { ImageSourcePropType, View } from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
@@ -14,7 +8,6 @@ import { DefaultHeading, SubHeading } from "./headings";
 import { DefaultText } from "./texts";
 import { DefaultImage } from "./images";
 import { ReadOnlyRating } from "./rating";
-import { Card } from "react-native-shadow-cards";
 import { Heart, OutLineHeart, OutLineLocation } from "./icons";
 import { DefaultTouchableOpacity } from "./touchableOpacity";
 import { useTheme } from "../theme/context";
@@ -48,11 +41,11 @@ export const ClinicCard: React.FC<ClinicCardProps> = ({
 }) => {
   const theme = useTheme();
   return (
-    <Card
+    <View
       style={{
         backgroundColor: theme.primary.bg,
         shadowColor: theme.primary.shadowColor,
-        elevation: 10,
+        elevation: 3,
         width: wp(70),
         borderRadius: 20,
         marginRight: wp(10),
@@ -106,7 +99,7 @@ export const ClinicCard: React.FC<ClinicCardProps> = ({
         style={{
           marginVertical: hp(3),
           borderTopWidth: 0.5,
-          borderColor: theme.primary.dark,
+          borderColor: theme.primary.borderColor,
           marginHorizontal: wp(5),
         }}
       >
@@ -124,7 +117,7 @@ export const ClinicCard: React.FC<ClinicCardProps> = ({
           <DefaultText>Hospital</DefaultText>
         </View>
       </View>
-    </Card>
+    </View>
   );
 };
 
@@ -143,11 +136,11 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
   const theme = useTheme();
   return (
     <DefaultTouchableOpacity handler={doctorDetail}>
-      <Card
+      <View
         style={{
           backgroundColor: theme.primary.bg,
           shadowColor: theme.primary.shadowColor,
-          elevation: 10,
+          elevation: 3,
           width: "100%",
           height: hp(18),
           marginBottom: wp(5),
@@ -177,6 +170,7 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
               paddingBottom: hp(1),
               borderBottomWidth: 0.5,
               paddingHorizontal: wp(1.4),
+              borderColor: theme.primary.borderColor,
             }}
           >
             <View>
@@ -187,7 +181,7 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
               handler={handler}
             >
               {favoritesIcone == false ? (
-                <OutLineHeart size={20} />
+                <OutLineHeart size={20} color={theme.primary.iconColor} />
               ) : (
                 <Heart size={20} color={theme.primary.iconColor} />
               )}
@@ -202,7 +196,7 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
               marginTop: hp(1),
             }}
           >
-            <OutLineLocation size={22} />
+            <OutLineLocation size={22} color={theme.primary.iconColor} />
 
             <DefaultText>{ClinicAddress}</DefaultText>
           </View>
@@ -231,7 +225,7 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
             </View>
           </View>
         </View>
-      </Card>
+      </View>
     </DefaultTouchableOpacity>
   );
 };

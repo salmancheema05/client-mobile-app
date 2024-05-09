@@ -42,7 +42,8 @@ const DefaultTextInput: React.FC<InputProps> = ({
       {icon}
       <TextInput
         {...rest}
-        style={{ paddingHorizontal: wp(3), fontWeight: "400" }}
+        placeholderTextColor="gray"
+        style={{ paddingHorizontal: wp(3), fontWeight: "400", color: "gray" }}
       />
     </View>
   );

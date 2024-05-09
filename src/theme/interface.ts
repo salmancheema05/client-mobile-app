@@ -6,6 +6,7 @@ export interface ThemeProps {
     shadowColor: string;
     circleBg: string;
     iconColor: string;
+    borderColor?: string;
     // Add more color definitions as needed
   };
 }
