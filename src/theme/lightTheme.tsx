@@ -7,5 +7,6 @@ export const lightTheme: ThemeProps = {
     shadowColor: "gray",
     circleBg: "hsla(220, 1%, 96%, 1)",
     iconColor: "#a9aeb9",
+    disabledColor: "lightgray",
   },
 };

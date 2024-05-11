@@ -7,6 +7,7 @@ export interface ThemeProps {
     circleBg: string;
     iconColor: string;
     borderColor?: string;
+    disabledColor: string;
     // Add more color definitions as needed
   };
 }

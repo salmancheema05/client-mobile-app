@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import {
   DefaultGrid,
   DefaultSection,
@@ -95,6 +95,12 @@ const BookingScreen = () => {
                   marked: false,
                   selectedColor: " hsla(212, 52%, 23%, 1)",
                 },
+              }}
+              theme={{
+                calendarBackground: theme.primary.bg,
+                monthTextColor: theme.primary.light,
+                dayTextColor: theme.primary.light,
+                textDisabledColor: theme.primary.disabledColor,
               }}
             />
           </View>

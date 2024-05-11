@@ -8,5 +8,6 @@ export const darkTheme: ThemeProps = {
     circleBg: "#463E3E",
     iconColor: "#a9aeb9",
     borderColor: "white",
+    disabledColor: "gray",
   },
 };
