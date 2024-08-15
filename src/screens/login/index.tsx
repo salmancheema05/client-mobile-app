@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View } from "react-native";
 import { DefaultSection, DefaultView } from "../../components/Views";
 import {
@@ -12,17 +12,68 @@ import { Email, UnLock } from "../../components/icons";
 import { google, logo, facebook } from "../../importAllImages";
 import { DefaultImage } from "../../components/images";
 import { DefaultHeading } from "../../components/headings";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../hooks/dispatchAndSelector";
+import { useUserLoginMutation } from "../../api/userLogin";
+import { jwtDecode } from "jwt-decode";
+import { JwtPayload } from "jsonwebtoken";
+import { userData } from "../../redux/AuthSlice";
+import { NavigationType } from "../../types/navigationType";
 
-type NavigationType = NavigationProp<
-  Record<string, object | undefined>,
-  string,
-  any,
-  any,
-  any
->;
+interface InputState {
+  email: string;
+  password: string;
+}
+interface JwtPayloadType extends JwtPayload {
+  user: {
+    id: number;
+    first_name: string;
+    last_name: string;
+    user_status: string;
+  };
+}
 
 const Login = () => {
+  const [userLogin] = useUserLoginMutation();
+  const dispatch = useAppDispatch();
   const navigation: NavigationType = useNavigation();
+  const [inputValue, setInputValue] = useState<InputState>({
+    email: "",
+    password: "",
+  });
+  const handleInputChange = (name: keyof InputState, value: string) => {
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+  const handlerLogin = async () => {
+    if (inputValue.email === "") {
+      console.log("required email");
+    } else if (inputValue.password === "") {
+      console.log("required password");
+    } else {
+      const res = await userLogin(inputValue);
+      const decoded = jwtDecode<JwtPayloadType>(res.data.message);
+      const userObject = {
+        id: decoded.user.id,
+        first_name: decoded.user.first_name,
+        last_name: decoded.user.last_name,
+        user_status: decoded.user.user_status,
+        token: res.data.message,
+        refresh_token: res.data.refreshtoken,
+      };
+      const response = await dispatch(userData(userObject));
+      if (response.payload.user_status === "doctor") {
+        navigation.navigate("DoctorAdmin");
+      } else if (response.payload.user_status === "patient") {
+        navigation.navigate("PatientAdmin");
+      }
+    }
+  };
+
   return (
     <DefaultView>
       <View style={{ marginTop: hp(5), alignItems: "center" }}>
@@ -35,16 +86,21 @@ const Login = () => {
         </DefaultHeading>
       </View>
       <View style={{ marginTop: hp(5) }}>
-        <DefaultTextInput icon={<Email />} placeholder="Email" />
-      </View>
-      <View style={{ marginTop: hp(3) }}>
-        <DefaultTextInput icon={<UnLock />} placeholder="Password" />
-      </View>
-      <View style={{ marginTop: hp(3) }}>
-        <DefaultButton
-          buttonKey="SignIn"
-          handler={() => navigation.navigate("DoctorAdmin")}
+        <DefaultTextInput
+          icon={<Email />}
+          onChangeText={(text) => handleInputChange("email", text)}
+          placeholder="Email"
         />
+      </View>
+      <View style={{ marginTop: hp(3) }}>
+        <DefaultTextInput
+          icon={<UnLock />}
+          onChangeText={(text) => handleInputChange("password", text)}
+          placeholder="Password"
+        />
+      </View>
+      <View style={{ marginTop: hp(3) }}>
+        <DefaultButton buttonKey="SignIn" handler={handlerLogin} />
       </View>
       <View
         style={{

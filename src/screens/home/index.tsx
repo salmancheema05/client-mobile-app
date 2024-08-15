@@ -1,5 +1,5 @@
 import React from "react";
-import { View, SafeAreaView, ScrollView } from "react-native";
+import { View } from "react-native";
 import { DefaultSection, DefaultView } from "../../components/Views";
 
 import {

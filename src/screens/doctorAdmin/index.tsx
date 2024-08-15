@@ -17,6 +17,7 @@ import Education from "./component/education";
 import { ThreeDotVertical } from "../../components/icons";
 import { DoctorProfileCard } from "../../components/cards";
 import { useTheme } from "../../theme/context";
+import Setting from "./component/setting";
 
 const DoctorAdminScreen = () => {
   const [openDropDown, setOpenDropDown] = useState<boolean>(false);
@@ -156,6 +157,8 @@ const DoctorAdminScreen = () => {
               <Education />
             ) : selectTab === 3 ? (
               <Experience />
+            ) : selectTab === 4 ? (
+              <Setting />
             ) : null}
           </ScrollView>
         </SafeAreaView>
