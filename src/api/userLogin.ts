@@ -14,6 +14,14 @@ interface UserLogoutParams {
 interface RefreshTokenParams {
   refreshtoken: any;
 }
+interface User {
+  email: string;
+  firstname: string;
+  gender: string;
+  lastname: string;
+  password: string;
+  user_status: string;
+}
 export const loginapi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
@@ -23,6 +31,13 @@ export const loginapi = createApi({
     userLogin: builder.mutation<any, UserLoginParams>({
       query: (params) => ({
         url: "login",
+        method: "POST",
+        body: params,
+      }),
+    }),
+    userSignUp: builder.mutation<any, User>({
+      query: (params) => ({
+        url: "signup",
         method: "POST",
         body: params,
       }),
@@ -54,4 +69,5 @@ export const {
   useUserLoginMutation,
   useUserLogoutMutation,
   useRefreshTokenMutation,
+  useUserSignUpMutation,
 } = loginapi;

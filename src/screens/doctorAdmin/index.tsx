@@ -18,17 +18,31 @@ import { ThreeDotVertical } from "../../components/icons";
 import { DoctorProfileCard } from "../../components/cards";
 import { useTheme } from "../../theme/context";
 import Setting from "./component/setting";
+import { userDataSelector } from "../../redux/AuthSlice";
+import { useAppSelector } from "../../hooks/dispatchAndSelector";
 
 const DoctorAdminScreen = () => {
   const [openDropDown, setOpenDropDown] = useState<boolean>(false);
   const [selectTab, setSelectTab] = useState<number>(0);
   const theme = useTheme();
+  const userAuth = useAppSelector(userDataSelector);
   return (
     <DefaultView>
-      <Header title="Dr. David Patel " />
+      <Header
+        title={
+          "Dr." +
+          userAuth.authReducer.first_name +
+          " " +
+          userAuth.authReducer.last_name
+        }
+      />
       <DefaultSection>
         <DoctorProfileCard
-          name="David Patel"
+          name={
+            userAuth.authReducer.first_name +
+            " " +
+            userAuth.authReducer.last_name
+          }
           departmentName="Cardiologist"
           ClinicAddress="Cardiologist Center,USA"
           fee={1800}

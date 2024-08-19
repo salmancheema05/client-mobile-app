@@ -29,13 +29,7 @@ const Setting = () => {
   const [authError, setAuthError] = useState<Boolean>(false);
   useEffect(() => {
     const createToken = async () => {
-      const token = userAuth.authReducer.token;
-      const response = await userLogout({
-        token: token,
-        refresh_token: userAuth.authReducer.refresh_token,
-      });
-      const unAuth = (response.error as FetchBaseQueryError)?.status;
-      if (unAuth === 401) {
+      if (authError === true) {
         refreshtoken();
         setAuthError(false);
       }

@@ -5,6 +5,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { useTheme } from "../theme/context";
 interface RadioButtonProps {
   hander: () => void;
   selected: boolean;
@@ -15,6 +16,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   selected,
   name,
 }) => {
+  const theme = useTheme();
   return (
     <>
       <DefaultTouchableOpacity
@@ -49,6 +51,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
             marginTop: 3,
             marginLeft: 3,
             fontSize: 12,
+            color: theme.primary.light,
           }}
         >
           {name}

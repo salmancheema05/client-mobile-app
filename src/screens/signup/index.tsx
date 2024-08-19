@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Alert } from "react-native";
 import { DefaultSection, DefaultView } from "../../components/Views";
 import {
   widthPercentageToDP as wp,
@@ -9,10 +9,11 @@ import { DefaultButton } from "../../components/buttons";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { DefaultTextInput } from "../../components/textinputs";
 import { Email, UnLock, User } from "../../components/icons";
-import { google, logo, facebook } from "../../importAllImages";
+import { logo } from "../../importAllImages";
 import { DefaultImage } from "../../components/images";
-import { DefaultHeading } from "../../components/headings";
+import { DefaultHeading, SubHeading } from "../../components/headings";
 import RadioButton from "../../components/radioButton";
+import { useUserSignUpMutation } from "../../api/userLogin";
 
 type NavigationType = NavigationProp<
   Record<string, object | undefined>,
@@ -21,10 +22,61 @@ type NavigationType = NavigationProp<
   any,
   any
 >;
+interface InputState {
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+}
 
 const SignUp = () => {
+  const [userSignUp] = useUserSignUpMutation();
   const navigation: NavigationType = useNavigation();
-  const [radioGender, setRadioGender] = useState({ value: null });
+  const [gender, setGender] = useState({ value: "" });
+  const [who, setWho] = useState({ value: "" });
+  const [inputValue, setInputValue] = useState<InputState>({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+  });
+  const handleInputChange = (name: keyof InputState, value: string) => {
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+  const handlerSignUp = async () => {
+    if (inputValue.firstname === "") {
+      Alert.alert("required First Name");
+    } else if (inputValue.lastname === "") {
+      Alert.alert("required Last Name");
+    } else if (inputValue.email === "") {
+      Alert.alert("required Email");
+    } else if (inputValue.password === "") {
+      Alert.alert("required Password");
+    } else if (gender.value === "") {
+      Alert.alert("required Gender");
+    } else if (who.value === "") {
+      Alert.alert("Who are you Doctor or Patient!");
+    } else {
+      const object = {
+        ...inputValue,
+        gender: gender.value,
+        user_status: who.value,
+      };
+      const res = await userSignUp(object);
+      Alert.alert(res.data.message);
+      setInputValue({
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+      });
+      setGender({ value: "" });
+      setWho({ value: "" });
+    }
+  };
   return (
     <DefaultView>
       <View style={{ marginTop: hp(5), alignItems: "center" }}>
@@ -37,34 +89,85 @@ const SignUp = () => {
         </DefaultHeading>
       </View>
       <View style={{ marginTop: hp(5) }}>
-        <DefaultTextInput icon={<User />} placeholder="Full Name" />
+        <DefaultTextInput
+          icon={<User />}
+          value={inputValue.firstname}
+          placeholder="First Name"
+          onChangeText={(text) => handleInputChange("firstname", text)}
+        />
       </View>
       <View style={{ marginTop: hp(5) }}>
-        <DefaultTextInput icon={<Email />} placeholder="Email" />
+        <DefaultTextInput
+          icon={<User />}
+          value={inputValue.lastname}
+          placeholder="last Name"
+          onChangeText={(text) => handleInputChange("lastname", text)}
+        />
+      </View>
+      <View style={{ marginTop: hp(5) }}>
+        <DefaultTextInput
+          icon={<Email />}
+          autoCapitalize="none"
+          value={inputValue.email}
+          placeholder="Email"
+          onChangeText={(text) => handleInputChange("email", text)}
+        />
       </View>
       <View style={{ marginTop: hp(3) }}>
-        <DefaultTextInput icon={<UnLock />} placeholder="Password" />
+        <DefaultTextInput
+          icon={<UnLock />}
+          secureTextEntry={true}
+          autoCapitalize="none"
+          value={inputValue.password}
+          placeholder="Password"
+          onChangeText={(text) => handleInputChange("password", text)}
+        />
       </View>
       <View
         style={{
-          width: "100%",
           marginTop: hp(2),
           flexDirection: "row",
+          justifyContent: "space-between",
         }}
       >
-        <RadioButton
-          hander={() => setRadioGender({ value: "male" })}
-          selected={radioGender.value === "male"}
-          name="Male"
-        />
-        <RadioButton
-          hander={() => setRadioGender({ value: "female" })}
-          selected={radioGender.value === "female"}
-          name="Female"
-        />
+        <View
+          style={{
+            flexDirection: "row",
+            height: hp(4),
+          }}
+        >
+          <RadioButton
+            hander={() => setGender({ value: "male" })}
+            selected={gender.value === "male"}
+            name="Male"
+          />
+          <RadioButton
+            hander={() => setGender({ value: "female" })}
+            selected={gender.value === "female"}
+            name="Female"
+          />
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            marginRight: wp(2),
+            height: hp(4),
+          }}
+        >
+          <RadioButton
+            hander={() => setWho({ value: "doctor" })}
+            selected={who.value === "doctor"}
+            name="Doctor"
+          />
+          <RadioButton
+            hander={() => setWho({ value: "patient" })}
+            selected={who.value === "patient"}
+            name="Patient"
+          />
+        </View>
       </View>
       <View style={{ marginTop: hp(3) }}>
-        <DefaultButton buttonKey="SignIn" />
+        <DefaultButton buttonKey="SignUp" handler={handlerSignUp} />
       </View>
 
       <DefaultSection>
@@ -76,15 +179,15 @@ const SignUp = () => {
           }}
         >
           <View style={{ flexDirection: "row" }}>
-            <DefaultHeading styles={{ marginRight: wp(1) }}>
+            <SubHeading styles={{ marginRight: wp(1) }}>
               Don't have an account yet?
-            </DefaultHeading>
-            <DefaultHeading
+            </SubHeading>
+            <SubHeading
               styles={{ color: "hsla(220, 88%, 65%, 1)" }}
               handler={() => navigation.navigate("Login")}
             >
-              Sign in
-            </DefaultHeading>
+              Sign In
+            </SubHeading>
           </View>
         </View>
       </DefaultSection>

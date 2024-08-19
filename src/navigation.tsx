@@ -115,7 +115,7 @@ const Navigation = () => {
               name="PatientAdmin"
               component={PatientAdminScreen}
               options={{
-                tabBarStyle: { display: "none" },
+                //tabBarStyle: { display: "none" },
                 tabBarIcon: ({ focused }) => (
                   <View
                     style={{
@@ -133,7 +133,7 @@ const Navigation = () => {
                     />
                   </View>
                 ),
-                tabBarButton: () => null,
+                // tabBarButton: () => null,
               }}
             />
             <Tab.Screen
@@ -141,7 +141,7 @@ const Navigation = () => {
               component={PatientSetting}
               options={{
                 tabBarStyle: { display: "none" },
-                //  tabBarButton: () => null,
+                tabBarButton: () => null,
               }}
             />
           </>

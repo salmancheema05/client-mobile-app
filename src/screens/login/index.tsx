@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { View, Alert } from "react-native";
 import { DefaultSection, DefaultView } from "../../components/Views";
 import {
   widthPercentageToDP as wp,
@@ -11,7 +11,7 @@ import { DefaultTextInput } from "../../components/textinputs";
 import { Email, UnLock } from "../../components/icons";
 import { google, logo, facebook } from "../../importAllImages";
 import { DefaultImage } from "../../components/images";
-import { DefaultHeading } from "../../components/headings";
+import { DefaultHeading, SubHeading } from "../../components/headings";
 import {
   useAppDispatch,
   useAppSelector,
@@ -21,7 +21,7 @@ import { jwtDecode } from "jwt-decode";
 import { JwtPayload } from "jsonwebtoken";
 import { userData } from "../../redux/AuthSlice";
 import { NavigationType } from "../../types/navigationType";
-
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 interface InputState {
   email: string;
   password: string;
@@ -51,25 +51,33 @@ const Login = () => {
   };
   const handlerLogin = async () => {
     if (inputValue.email === "") {
-      console.log("required email");
+      Alert.alert("required email");
     } else if (inputValue.password === "") {
-      console.log("required password");
+      Alert.alert("required password");
     } else {
       const res = await userLogin(inputValue);
-      const decoded = jwtDecode<JwtPayloadType>(res.data.message);
-      const userObject = {
-        id: decoded.user.id,
-        first_name: decoded.user.first_name,
-        last_name: decoded.user.last_name,
-        user_status: decoded.user.user_status,
-        token: res.data.message,
-        refresh_token: res.data.refreshtoken,
+      const wrongInformation = (res.error as FetchBaseQueryError)?.data as {
+        error: string;
       };
-      const response = await dispatch(userData(userObject));
-      if (response.payload.user_status === "doctor") {
-        navigation.navigate("DoctorAdmin");
-      } else if (response.payload.user_status === "patient") {
-        navigation.navigate("PatientAdmin");
+      const errorStatus = (res.error as FetchBaseQueryError)?.status;
+      if (errorStatus === 404) {
+        Alert.alert(wrongInformation.error);
+      } else {
+        const decoded = jwtDecode<JwtPayloadType>(res.data.message);
+        const userObject = {
+          id: decoded.user.id,
+          first_name: decoded.user.first_name,
+          last_name: decoded.user.last_name,
+          user_status: decoded.user.user_status,
+          token: res.data.message,
+          refresh_token: res.data.refreshtoken,
+        };
+        const response = await dispatch(userData(userObject));
+        if (response.payload.user_status === "doctor") {
+          navigation.navigate("DoctorAdmin");
+        } else if (response.payload.user_status === "patient") {
+          navigation.navigate("PatientAdmin");
+        }
       }
     }
   };
@@ -89,6 +97,7 @@ const Login = () => {
         <DefaultTextInput
           icon={<Email />}
           onChangeText={(text) => handleInputChange("email", text)}
+          autoCapitalize="none"
           placeholder="Email"
         />
       </View>
@@ -96,6 +105,8 @@ const Login = () => {
         <DefaultTextInput
           icon={<UnLock />}
           onChangeText={(text) => handleInputChange("password", text)}
+          secureTextEntry={true}
+          autoCapitalize="none"
           placeholder="Password"
         />
       </View>
@@ -157,7 +168,7 @@ const Login = () => {
               paddingHorizontal: wp(3),
             }}
           >
-            <DefaultHeading>Sign In with Google</DefaultHeading>
+            <SubHeading>Sign In with Google</SubHeading>
           </View>
         </View>
         <View
@@ -192,7 +203,7 @@ const Login = () => {
               paddingHorizontal: wp(3),
             }}
           >
-            <DefaultHeading>Sign In with Facebook</DefaultHeading>
+            <SubHeading>Sign In with Facebook</SubHeading>
           </View>
         </View>
         <View
@@ -202,9 +213,9 @@ const Login = () => {
             marginTop: hp(3),
           }}
         >
-          <DefaultHeading styles={{ color: "hsla(220, 88%, 65%, 1)" }}>
+          <SubHeading styles={{ color: "hsla(220, 88%, 65%, 1)" }}>
             Forgot Password?
-          </DefaultHeading>
+          </SubHeading>
         </View>
         <View
           style={{
@@ -214,15 +225,15 @@ const Login = () => {
           }}
         >
           <View style={{ flexDirection: "row" }}>
-            <DefaultHeading styles={{ marginRight: wp(1) }}>
+            <SubHeading styles={{ marginRight: wp(1) }}>
               Don't have an account yet?
-            </DefaultHeading>
-            <DefaultHeading
+            </SubHeading>
+            <SubHeading
               styles={{ color: "hsla(220, 88%, 65%, 1)" }}
               handler={() => navigation.navigate("Signup")}
             >
               Sign up
-            </DefaultHeading>
+            </SubHeading>
           </View>
         </View>
       </DefaultSection>

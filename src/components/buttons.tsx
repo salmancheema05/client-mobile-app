@@ -109,6 +109,23 @@ const DefaultButton: React.FC<ButtonProps> = ({
         ...textStyle,
       },
     },
+    SignUp: {
+      name: "Sign Up",
+      style: {
+        backgroundColor: "hsla(212, 52%, 23%, 1)",
+        width: "100%",
+        color: "white",
+        padding: 10,
+        borderRadius: 40,
+      },
+      textStyle: {
+        textTransform: "none",
+        fontSize: 15,
+        alignSelf: "center",
+        color: "white",
+        ...textStyle,
+      },
+    },
     Cancel: {
       name: "Cancel",
       style: {
