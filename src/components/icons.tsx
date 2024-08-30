@@ -7,6 +7,7 @@ import { EvilIcons } from "@expo/vector-icons";
 interface Iconprops {
   size?: number;
   color?: string;
+  handler?: () => void;
 }
 export const RightArrow: React.FC<Iconprops> = ({
   size = 18,
@@ -44,11 +45,13 @@ export const Share: React.FC<Iconprops> = ({ size = 25, color = "white" }) => (
 export const OutLineHeart: React.FC<Iconprops> = ({
   size = 25,
   color = "hsla(215, 24%, 39%, 1)",
-}) => <AntDesign name="hearto" size={size} color={color} />;
+  handler,
+}) => <AntDesign name="hearto" size={size} color={color} onPress={handler} />;
 export const Heart: React.FC<Iconprops> = ({
   size = 25,
   color = "hsla(212, 52%, 23%, 1)",
-}) => <Entypo name="heart" size={size} color={color} />;
+  handler,
+}) => <Entypo name="heart" size={size} color={color} onPress={handler} />;
 export const Clinic: React.FC<Iconprops> = ({ size = 25, color = "red" }) => (
   <FontAwesome5 name="clinic-medical" size={size} color={color} />
 );

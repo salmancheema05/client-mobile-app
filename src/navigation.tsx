@@ -22,6 +22,8 @@ import { CircleImage } from "./components/images";
 import { useTheme } from "./theme/context";
 import { useAppSelector } from "./hooks/dispatchAndSelector";
 import { userDataSelector } from "./redux/AuthSlice";
+import { DefaultText } from "./components/texts";
+import { DefaultHeading } from "./components/headings";
 const Navigation = () => {
   const Tab = createBottomTabNavigator();
   const theme = useTheme();
@@ -119,7 +121,7 @@ const Navigation = () => {
                 tabBarIcon: ({ focused }) => (
                   <View
                     style={{
-                      backgroundColor: focused ? theme.primary.circleBg : null,
+                      backgroundColor: "#c2185b",
                       width: 35,
                       height: 35,
                       borderRadius: 100,
@@ -127,10 +129,9 @@ const Navigation = () => {
                       alignItems: "center",
                     }}
                   >
-                    <CircleImage
-                      source={userpic}
-                      styles={{ width: 45, height: 45 }}
-                    />
+                    <DefaultHeading>
+                      {userAuth.authReducer.first_name.charAt(0)}
+                    </DefaultHeading>
                   </View>
                 ),
                 // tabBarButton: () => null,
@@ -155,7 +156,7 @@ const Navigation = () => {
               tabBarIcon: ({ focused }) => (
                 <View
                   style={{
-                    backgroundColor: focused ? theme.primary.circleBg : null,
+                    backgroundColor: "#c2185b",
                     width: 35,
                     height: 35,
                     borderRadius: 100,
@@ -163,10 +164,9 @@ const Navigation = () => {
                     alignItems: "center",
                   }}
                 >
-                  <CircleImage
-                    source={userpic}
-                    styles={{ width: 45, height: 45 }}
-                  />
+                  <DefaultHeading>
+                    {userAuth.authReducer.first_name.charAt(0)}
+                  </DefaultHeading>
                 </View>
               ),
             }}

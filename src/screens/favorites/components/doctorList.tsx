@@ -1,5 +1,5 @@
-import { View, Text } from "react-native";
-import React, { useState } from "react";
+import { View, Text, FlatList } from "react-native";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -11,11 +11,40 @@ import Modal from "react-native-modal";
 import { DefaultHeading } from "../../../components/headings";
 import { DefaultButton } from "../../../components/buttons";
 import { useTheme } from "../../../theme/context";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../hooks/dispatchAndSelector";
+import { doctorDataSelector } from "../../../redux/doctor";
+import { favoriteData, favoriteDataSelector } from "../../../redux/favorite";
+import { Doctor } from "../../../types/doctor";
+import { capitalizeName } from "../../../../ulitity/capitalizeName";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
+import { NavigationType } from "../../../types/navigationType";
+import { persistor } from "../../../store";
 const DoctorList = () => {
+  const navigation: NavigationType = useNavigation();
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
   const theme = useTheme();
+  const dispatch = useAppDispatch();
+  const doctorList = useAppSelector(doctorDataSelector).list;
+  const favoriteListSelector =
+    useAppSelector(favoriteDataSelector).FavoriteReducer.list;
+  const favoriteList = async () => {
+    // await persistor.purge();
+    doctorList.forEach((object) => {
+      if (object.isFavorite) {
+        dispatch(favoriteData(object));
+      }
+    });
+  };
+
+  useEffect(() => {
+    favoriteList();
+  }, [doctorList]);
+
   return (
-    <ScrollVertical>
+    <>
       <Modal
         isVisible={isModalVisible}
         onBackdropPress={() => setModalVisible(false)}
@@ -73,64 +102,27 @@ const DoctorList = () => {
         }}
       >
         <DefaultSection>
-          <DoctorProfileCard
-            handler={() => setModalVisible(true)}
-            favoritesIcone={true}
-            name="David Patel"
-            departmentName="Cardiologist"
-            ClinicAddress="Cardiologist Center,USA"
-            fee={1800}
-            rating={4.5}
-            totalRating="4.5"
-            source={require("../../../images/doctorImage1.png")}
-          />
-          <DoctorProfileCard
-            handler={() => setModalVisible(true)}
-            favoritesIcone={true}
-            name="David Patel"
-            departmentName="Cardiologist"
-            ClinicAddress="Cardiologist Center,USA"
-            fee={1800}
-            rating={4.5}
-            totalRating="4.5"
-            source={require("../../../images/doctorImage1.png")}
-          />
-          <DoctorProfileCard
-            handler={() => setModalVisible(true)}
-            favoritesIcone={true}
-            name="David Patel"
-            departmentName="Cardiologist"
-            ClinicAddress="Cardiologist Center,USA"
-            fee={1800}
-            rating={4.5}
-            totalRating="4.5"
-            source={require("../../../images/doctorImage1.png")}
-          />
-          <DoctorProfileCard
-            handler={() => setModalVisible(true)}
-            favoritesIcone={true}
-            name="David Patel"
-            departmentName="Cardiologist"
-            ClinicAddress="Cardiologist Center,USA"
-            fee={1800}
-            rating={4.5}
-            totalRating="4.5"
-            source={require("../../../images/doctorImage1.png")}
-          />
-          <DoctorProfileCard
-            handler={() => setModalVisible(true)}
-            favoritesIcone={true}
-            name="David Patel"
-            departmentName="Cardiologist"
-            ClinicAddress="Cardiologist Center,USA"
-            fee={1800}
-            rating={4.5}
-            totalRating="4.5"
-            source={require("../../../images/doctorImage1.png")}
+          <FlatList
+            data={favoriteListSelector}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item }: { item: Doctor }) => (
+              <DoctorProfileCard
+                favoritesIcone={item.isFavorite}
+                doctorDetail={() => navigation.navigate("DoctorDetail")}
+                name={capitalizeName(item.first_name + " " + item.last_name)}
+                departmentName={capitalizeName(item.department_name)}
+                ClinicAddress="Cardiologist Center,USA"
+                fee={1800}
+                rating={4.5}
+                totalRating="4.5"
+                source={require("../../../images/userpic.jpg")}
+              />
+            )}
+            keyExtractor={(item) => item.id.toString()}
           />
         </DefaultSection>
       </View>
-    </ScrollVertical>
+    </>
   );
 };
 

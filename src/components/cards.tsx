@@ -180,10 +180,18 @@ export const DoctorProfileCard: React.FC<DoctorCardProps> = ({
               styles={{ paddingRight: wp(2), paddingTop: hp(0.5) }}
               handler={handler}
             >
-              {favoritesIcone == false ? (
-                <OutLineHeart size={20} color={theme.primary.iconColor} />
+              {favoritesIcone == true ? (
+                <Heart
+                  size={20}
+                  color={theme.primary.iconColor}
+                  handler={handler}
+                />
               ) : (
-                <Heart size={20} color={theme.primary.iconColor} />
+                <OutLineHeart
+                  size={20}
+                  color={theme.primary.iconColor}
+                  handler={handler}
+                />
               )}
             </DefaultTouchableOpacity>
           </View>
