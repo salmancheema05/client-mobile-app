@@ -31,6 +31,7 @@ const store = configureStore({
     persisted: persistedReducer,
     doctorList: doctor,
     selectDepartment: selectDepartment,
+    doctorObject: FavoriteReducer,
     [loginapi.reducerPath]: loginapi.reducer,
     [fetchDepartment.reducerPath]: fetchDepartment.reducer,
     [fetchDoctor.reducerPath]: fetchDoctor.reducer,

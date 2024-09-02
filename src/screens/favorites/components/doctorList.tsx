@@ -1,12 +1,11 @@
-import { View, Text, FlatList } from "react-native";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
+import { View, FlatList } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { DoctorProfileCard } from "../../../components/cards";
 import { DefaultSection } from "../../../components/Views";
-import { ScrollVertical } from "../../../components/Scrolling";
 import Modal from "react-native-modal";
 import { DefaultHeading } from "../../../components/headings";
 import { DefaultButton } from "../../../components/buttons";
@@ -15,11 +14,20 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../hooks/dispatchAndSelector";
-import { doctorDataSelector } from "../../../redux/doctor";
-import { favoriteData, favoriteDataSelector } from "../../../redux/favorite";
+import {
+  doctorDataSelector,
+  updateisFavoriteStatus,
+} from "../../../redux/doctor";
+import {
+  favoriteData,
+  favoriteDataSelector,
+  favoriteDoctorByid,
+  removeDoctor,
+  selectFavoriteDoctor,
+} from "../../../redux/favorite";
 import { Doctor } from "../../../types/doctor";
 import { capitalizeName } from "../../../../ulitity/capitalizeName";
-import { useNavigation, useFocusEffect } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { NavigationType } from "../../../types/navigationType";
 import { persistor } from "../../../store";
 const DoctorList = () => {
@@ -28,8 +36,16 @@ const DoctorList = () => {
   const theme = useTheme();
   const dispatch = useAppDispatch();
   const doctorList = useAppSelector(doctorDataSelector).list;
+  const [selectedDoctorId, setSelectedDoctorId] = useState<number | null>(null);
+  const [removeDoctorId, setRemoveDoctorId] = useState<number | null>(null);
   const favoriteListSelector =
     useAppSelector(favoriteDataSelector).FavoriteReducer.list;
+  const selectDoctorObject = useAppSelector((state) =>
+    selectFavoriteDoctor(state, selectedDoctorId)
+  );
+  const doctorObject = useAppSelector((state) =>
+    favoriteDoctorByid(state, removeDoctorId)
+  );
   const favoriteList = async () => {
     // await persistor.purge();
     doctorList.forEach((object) => {
@@ -38,11 +54,38 @@ const DoctorList = () => {
       }
     });
   };
-
+  const openModel = (doctor_id: number) => {
+    setSelectedDoctorId(doctor_id);
+    if (selectDoctorObject) {
+      setModalVisible(true);
+    }
+  };
+  const remove = async (remove_id: number) => {
+    let remove_doctor_id: number | null = null;
+    if (favoriteListSelector.length == 1) {
+      setRemoveDoctorId(remove_id);
+      if (doctorObject !== undefined) {
+        await persistor.purge();
+        dispatch(removeDoctor({ id: 0 }));
+        setModalVisible(false);
+        setRemoveDoctorId(null);
+        remove_doctor_id = doctorObject.id;
+        dispatch(updateisFavoriteStatus({ id: remove_doctor_id }));
+      }
+    } else {
+      setRemoveDoctorId(remove_id);
+      if (doctorObject !== undefined) {
+        await dispatch(removeDoctor({ id: remove_id }));
+        setModalVisible(false);
+        setRemoveDoctorId(null);
+        remove_doctor_id = doctorObject.id;
+        dispatch(updateisFavoriteStatus({ id: remove_doctor_id }));
+      }
+    }
+  };
   useEffect(() => {
     favoriteList();
   }, [doctorList]);
-
   return (
     <>
       <Modal
@@ -72,13 +115,23 @@ const DoctorList = () => {
           <View style={{ marginHorizontal: hp(2) }}>
             <DoctorProfileCard
               favoritesIcone={true}
-              name="David Patel"
-              departmentName="Cardiologist"
+              name={
+                selectDoctorObject != undefined
+                  ? capitalizeName(selectDoctorObject.first_name) +
+                    " " +
+                    capitalizeName(selectDoctorObject.last_name)
+                  : null
+              }
+              departmentName={
+                selectDoctorObject != undefined
+                  ? capitalizeName(selectDoctorObject.department_name)
+                  : null
+              }
               ClinicAddress="Cardiologist Center,USA"
               fee={1800}
               rating={4.5}
               totalRating="4.5"
-              source={require("../../../images/doctorImage1.png")}
+              source={require("../../../images/userpic.jpg")}
             />
           </View>
           <View
@@ -90,7 +143,14 @@ const DoctorList = () => {
           >
             <DefaultButton buttonKey="Cancel" styles={{ marginRight: wp(2) }} />
 
-            <DefaultButton buttonKey="Remove" />
+            <DefaultButton
+              buttonKey="Remove"
+              handler={() =>
+                remove(
+                  selectDoctorObject != undefined ? selectDoctorObject.id : null
+                )
+              }
+            />
           </View>
         </View>
       </Modal>
@@ -108,13 +168,16 @@ const DoctorList = () => {
             renderItem={({ item }: { item: Doctor }) => (
               <DoctorProfileCard
                 favoritesIcone={item.isFavorite}
-                doctorDetail={() => navigation.navigate("DoctorDetail")}
+                doctorDetail={() =>
+                  navigation.navigate("DoctorDetail", { id: item.id })
+                }
                 name={capitalizeName(item.first_name + " " + item.last_name)}
                 departmentName={capitalizeName(item.department_name)}
                 ClinicAddress="Cardiologist Center,USA"
                 fee={1800}
                 rating={4.5}
                 totalRating="4.5"
+                handler={() => openModel(item.id)}
                 source={require("../../../images/userpic.jpg")}
               />
             )}

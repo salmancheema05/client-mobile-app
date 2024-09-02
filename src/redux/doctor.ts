@@ -25,8 +25,20 @@ const doctorList = createSlice({
     clearList: (state) => {
       state.list = [];
     },
+    updateisFavoriteStatus: (state, action: PayloadAction<{ id: number }>) => {
+      const { id } = action.payload;
+      const doctor = state.list.find((doctor) => doctor.id === id);
+      if (doctor) {
+        doctor.isFavorite = false;
+      }
+    },
   },
 });
-export const { doctorData, myFavorite, clearList } = doctorList.actions;
+
+export const selectDoctorById = (state: RootState, id: number) =>
+  state.doctorList.list.find((item) => item.id === id);
+
+export const { doctorData, myFavorite, clearList, updateisFavoriteStatus } =
+  doctorList.actions;
 export const doctorDataSelector = (state: RootState) => state.doctorList;
 export default doctorList.reducer;

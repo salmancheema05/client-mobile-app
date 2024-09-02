@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FlatList, Alert } from "react-native";
+import { FlatList } from "react-native";
 import { DoctorProfileCard } from "../../../components/cards";
 import { DefaultSection } from "../../../components/Views";
 import { NavigationType } from "../../../types/navigationType";
@@ -32,15 +32,11 @@ const DoctorList = () => {
       data.forEach((item) => {
         const object = favoriteList.some((fav) => fav.id === item.id);
         const updateData = { ...item, isFavorite: object };
-        //console.log("updateDate", favoriteList);
         dispatch(doctorData(updateData));
       });
     }
   };
-  useEffect(() => {
-    dispatch(clearList());
-    fetchDoctors();
-  }, [data, dispatch]);
+
   const isFavorite = async (doctor_id: number) => {
     const index = doctorList.findIndex((doctor) => doctor.id === doctor_id);
     const updatedData = (doctorList[index].isFavorite = true);
@@ -49,6 +45,10 @@ const DoctorList = () => {
     }
   };
 
+  useEffect(() => {
+    dispatch(clearList());
+    fetchDoctors();
+  }, [data, dispatch]);
   return (
     <DefaultSection>
       <FlatList
@@ -58,7 +58,9 @@ const DoctorList = () => {
           <DoctorProfileCard
             handler={() => isFavorite(item.id)}
             favoritesIcone={item.isFavorite}
-            doctorDetail={() => navigation.navigate("DoctorDetail")}
+            doctorDetail={() =>
+              navigation.navigate("DoctorDetail", { id: item.id })
+            }
             name={capitalizeName(item.first_name + " " + item.last_name)}
             departmentName={capitalizeName(item.department_name)}
             ClinicAddress="Cardiologist Center,USA"

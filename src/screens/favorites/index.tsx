@@ -1,4 +1,3 @@
-import { View, Text } from "react-native";
 import React from "react";
 import { DefaultView, Header } from "../../components/Views";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
