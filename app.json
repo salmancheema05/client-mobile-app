@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "doctorapp",
-    "slug": "doctorapp",
+    "name": "MediCare",
+    "slug": "medicare",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,10 +14,10 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "bundleIdentifier": "com.salmancheema1234.doctorapp"
+      "bundleIdentifier": "com.salmancheema1234.MediCare"
     },
     "android": {
-      "package": "com.salmancheema1234.doctorapp"
+      "package": "com.salmancheema1234.MediCare"
     },
     "web": {
       "favicon": "./assets/favicon.png"
